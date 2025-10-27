@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio – Frontend Developer & Designer" />
-  <title>Portfolio | Frontend Developer & Designer</title>
+  <meta name="description" content="Портфоліо – Frontend розробник і дизайнер" />
+  <title>Микола | Frontend розробник і дизайнер</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="src/styles.css" />
+  <link rel="stylesheet" href="./src/styles.css" />
 </head>
 <body>
   <!-- Navigation -->
   <nav class="nav">
     <div class="container nav-container">
-      <a href="#" class="logo">Mykola</a>
+      <a href="#" class="logo">Микола</a>
       <ul class="nav-menu">
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#projects" class="nav-link">Проєкти</a></li>
+        <li><a href="#about" class="nav-link">Про мене</a></li>
+        <li><a href="#contact" class="nav-link">Контакти</a></li>
       </ul>
     </div>
   </nav>
@@ -25,15 +24,15 @@
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="container">
-      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <p class="hero-label">Frontend Developer & Designer</p>
-        <h1 class="hero-title">Clean Code.<br />Smart Design.</h1>
+      <div class="hero-content">
+        <p class="hero-label">Frontend розробник і дизайнер</p>
+        <h1 class="hero-title">Чистий код.<br />Розумний дизайн.</h1>
         <p class="hero-description">
-          I build fast, modern, and minimal websites that focus on usability and visual impact.
+          Створюю швидкі, сучасні та мінімалістичні сайти з фокусом на зручність та візуальний вплив.
         </p>
-        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#projects" class="btn-primary">Переглянути проєкти</a>
       </div>
-      <div class="hero-visual" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+      <div class="hero-visual">
         <div class="floating-card"></div>
         <div class="floating-card"></div>
         <div class="floating-card"></div>
@@ -44,10 +43,11 @@
   <!-- Projects Section -->
   <section class="projects" id="projects">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Projects</h2>
+      <h2 class="section-title">Проєкти</h2>
       <div class="projects-grid">
+        
         <!-- Project 1 -->
-        <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -59,19 +59,19 @@
           <div class="project-content">
             <h3 class="project-title">AI Portfolio Landing</h3>
             <p class="project-description">
-              A dark, minimal landing page for showcasing web & design projects. Fully responsive and animated.
+              Темна мінімалістична сторінка для демонстрації веб-проєктів і дизайну. Повністю адаптивна з анімаціями.
             </p>
             <div class="project-tags">
               <span class="tag">HTML</span>
               <span class="tag">CSS</span>
               <span class="tag">JS</span>
             </div>
-            <a href="#" class="project-link">View Live →</a>
+            <a href="#" class="project-link">Переглянути →</a>
           </div>
         </article>
 
         <!-- Project 2 -->
-        <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -80,21 +80,21 @@
             </div>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Minimal Business Website</h3>
+            <h3 class="project-title">Сайт бізнесу</h3>
             <p class="project-description">
-              A 3-page responsive business site with clean typography and optimized performance.
+              3-сторінковий адаптивний сайт з чистою типографікою та оптимізованою продуктивністю.
             </p>
             <div class="project-tags">
               <span class="tag">HTML</span>
               <span class="tag">CSS</span>
               <span class="tag">Tailwind</span>
             </div>
-            <a href="#" class="project-link">View Live →</a>
+            <a href="#" class="project-link">Переглянути →</a>
           </div>
         </article>
 
         <!-- Project 3 -->
-        <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -106,19 +106,19 @@
           <div class="project-content">
             <h3 class="project-title">AI Dashboard UI</h3>
             <p class="project-description">
-              Frontend dashboard prototype with charts, stat cards, and dark/light mode.
+              Прототип панелі управління з графіками, картками статистики та темною темою.
             </p>
             <div class="project-tags">
               <span class="tag">React</span>
               <span class="tag">Tailwind</span>
               <span class="tag">Chart.js</span>
             </div>
-            <a href="#" class="project-link">View Live →</a>
+            <a href="#" class="project-link">Переглянути →</a>
           </div>
         </article>
 
         <!-- Project 4 -->
-        <article class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%)">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -127,21 +127,21 @@
             </div>
           </div>
           <div class="project-content">
-            <h3 class="project-title">Product Landing Page</h3>
+            <h3 class="project-title">Product Landing</h3>
             <p class="project-description">
-              A modern product landing built for conversion, featuring animations and CTA blocks.
+              Сучасна продуктова сторінка з анімаціями та блоками для конверсії.
             </p>
             <div class="project-tags">
               <span class="tag">React</span>
               <span class="tag">GSAP</span>
               <span class="tag">CSS</span>
             </div>
-            <a href="#" class="project-link">View Live →</a>
+            <a href="#" class="project-link">Переглянути →</a>
           </div>
         </article>
 
         <!-- Project 5 -->
-        <article class="project-card" data-aos="fade-up" data-aos-delay="500">
+        <article class="project-card">
           <div class="project-image">
             <div class="project-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)">
               <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -153,14 +153,14 @@
           <div class="project-content">
             <h3 class="project-title">Brand Identity Pack</h3>
             <p class="project-description">
-              Brand style guide with logo, color palette, and mockups — simple, clean, and consistent.
+              Гайд бренду з логотипом, кольоровою палітрою та мокапами — просто, чисто, консистентно.
             </p>
             <div class="project-tags">
               <span class="tag">Figma</span>
               <span class="tag">Design</span>
               <span class="tag">Branding</span>
             </div>
-            <a href="#" class="project-link">View Live →</a>
+            <a href="#" class="project-link">Переглянути →</a>
           </div>
         </article>
       </div>
@@ -170,29 +170,29 @@
   <!-- About Section -->
   <section class="about" id="about">
     <div class="container">
-      <div class="about-content" data-aos="fade-up">
-        <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <h2 class="section-title">Про мене</h2>
         <div class="about-text">
           <p>
-            I'm Mykola — a frontend developer and designer focused on creating fast, minimal, and user-friendly web interfaces.
+            Я Микола — frontend розробник і дизайнер, зосереджений на створенні швидких, мінімалістичних та зручних веб-інтерфейсів.
           </p>
           <p>
-            I enjoy building from scratch: from idea and design to clean, responsive code. My main tools are HTML, CSS, JavaScript, and React.
+            Люблю будувати з нуля: від ідеї та дизайну до чистого, адаптивного коду. Мої основні інструменти — HTML, CSS, JavaScript та React.
           </p>
           <p>
-            I aim for clarity, smooth user flow, and efficient structure in every project.
+            Прагну до чіткості, плавного користувацького потоку та ефективної структури в кожному проєкті.
           </p>
         </div>
         <div class="skills-grid">
-          <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-item">
             <h4>Frontend</h4>
             <p>HTML, CSS, JS, React</p>
           </div>
-          <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
-            <h4>Design</h4>
+          <div class="skill-item">
+            <h4>Дизайн</h4>
             <p>Figma, UI/UX, Branding</p>
           </div>
-          <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-item">
             <h4>Workflow</h4>
             <p>Git, Vite, Responsive</p>
           </div>
@@ -204,10 +204,10 @@
   <!-- Contact Section -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
-      <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
+      <h2 class="section-title">Зв'яжіться зі мною</h2>
+      <div class="contact-content">
         <p class="contact-intro">
-          Ready to collaborate? Reach me through any platform below.
+          Готові до співпраці? Знайдіть мене на будь-якій платформі нижче.
         </p>
         <div class="social-buttons">
           <a href="https://www.upwork.com/freelancers/~01dec1110f4bac0e7d" target="_blank" rel="noopener noreferrer" class="social-btn upwork-btn">
@@ -237,11 +237,10 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Mykola Portfolio. All rights reserved.</p>
+      <p>&copy; 2025 Микола Портфоліо. Всі права захищені.</p>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="src/main.js"></script>
+  <script src="./src/main.js"></script>
 </body>
 </html>
