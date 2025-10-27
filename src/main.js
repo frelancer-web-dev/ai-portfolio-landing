@@ -1,5 +1,5 @@
-// ===== TRANSLATIONS =====
-const translations = {
+// ===== TRANSLATIONS MODULE =====
+const TRANSLATIONS = {
     en: {
         "nav.projects": "Projects",
         "nav.about": "About",
@@ -104,180 +104,311 @@ const translations = {
     }
 };
 
-const languageFlags = {
+const LANGUAGE_FLAGS = {
     en: '🇬🇧',
     uk: '🇺🇦',
     ru: '🇷🇺'
 };
 
-// ===== LANGUAGE SWITCHER =====
-let currentLang = localStorage.getItem('language') || 'en';
-
-function translatePage(lang) {
-    const elements = document.querySelectorAll('[data-i18n]');
-    
-    elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const translation = translations[lang][key];
-        
-        if (translation) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = translation;
-            } else {
-                el.innerHTML = translation;
-            }
-        }
-    });
-    
-    // Оновлюємо прапорець у кнопці
-    const currentLangBtn = document.getElementById('currentLang');
-    if (currentLangBtn) {
-        currentLangBtn.querySelector('.flag').textContent = languageFlags[lang];
-    }
-    
-    // Позначаємо активну мову
-    document.querySelectorAll('.lang-option').forEach(option => {
-        option.classList.remove('active');
-        if (option.getAttribute('data-lang') === lang) {
-            option.classList.add('active');
-        }
-    });
-    
-    currentLang = lang;
-    localStorage.setItem('language', lang);
-    
-    // Оновлюємо AOS після зміни тексту
-    if (typeof AOS !== 'undefined') {
-        AOS.refresh();
-    }
-}
-
-// Ініціалізація перекладу при завантаженні
-document.addEventListener('DOMContentLoaded', () => {
-    translatePage(currentLang);
-    
-    // Обробник для кнопки відкриття меню
-    const langBtn = document.getElementById('currentLang');
-    const langDropdown = document.getElementById('langDropdown');
-    
-    if (langBtn && langDropdown) {
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            langDropdown.classList.toggle('active');
-        });
-        
-        // Закриття при кліку поза меню
-        document.addEventListener('click', (e) => {
-            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-                langDropdown.classList.remove('active');
-            }
-        });
-    }
-    
-    // Обробники для вибору мови
-    document.querySelectorAll('.lang-option').forEach(option => {
-        option.addEventListener('click', () => {
-            const lang = option.getAttribute('data-lang');
-            translatePage(lang);
-            langDropdown.classList.remove('active');
-        });
-    });
-});
-
-// ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// ===== NAVIGATION & PARALLAX =====
-const nav = document.querySelector('.nav');
-const heroContent = document.querySelector('.hero-content');
-const heroVisual = document.querySelector('.hero-visual');
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-let ticking = false;
-
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            handleScroll();
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
-
-function handleScroll() {
-    const scrolled = window.pageYOffset;
-    
-    if (scrolled > 100) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-    
-    if (scrolled < window.innerHeight) {
-        if (heroContent) {
-            heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-            heroContent.style.opacity = Math.max(0, 1 - (scrolled / 700));
-        }
-        
-        if (heroVisual) {
-            heroVisual.style.transform = `translateY(${scrolled * 0.15}px)`;
-        }
-    }
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrolled >= sectionTop - 150) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        if (href && href.slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// ===== PROJECT CARDS HOVER =====
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-});
-
-// ===== AOS INITIALIZATION =====
-if (typeof AOS !== 'undefined') {
-    AOS.init({
+const CONFIG = {
+    defaultLang: 'en',
+    storageKey: 'portfolio_language',
+    navOffset: 80,
+    scrollThreshold: 100,
+    parallaxSpeed: {
+        content: 0.3,
+        visual: 0.15
+    },
+    aos: {
         duration: 1000,
         once: true,
         offset: 100
-    });
+    }
+};
+
+// ===== UTILITY FUNCTIONS =====
+const Utils = {
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    },
+
+    throttle(func) {
+        let ticking = false;
+        return function(...args) {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    func.apply(this, args);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+    },
+
+    getStorageItem(key, defaultValue) {
+        try {
+            return localStorage.getItem(key) || defaultValue;
+        } catch (e) {
+            console.warn('localStorage not available:', e);
+            return defaultValue;
+        }
+    },
+
+    setStorageItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (e) {
+            console.warn('localStorage not available:', e);
+        }
+    }
+};
+
+// ===== LANGUAGE MANAGER =====
+class LanguageManager {
+    constructor() {
+        this.currentLang = Utils.getStorageItem(CONFIG.storageKey, CONFIG.defaultLang);
+        this.elements = {
+            langBtn: document.getElementById('currentLang'),
+            langDropdown: document.getElementById('langDropdown'),
+            langOptions: document.querySelectorAll('.lang-option')
+        };
+    }
+
+    init() {
+        this.translatePage(this.currentLang);
+        this.bindEvents();
+    }
+
+    translatePage(lang) {
+        if (!TRANSLATIONS[lang]) {
+            console.error(`Language "${lang}" not found`);
+            return;
+        }
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const translation = TRANSLATIONS[lang][key];
+
+            if (translation) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translation;
+                } else {
+                    el.innerHTML = translation;
+                }
+            }
+        });
+
+        this.updateUI(lang);
+        this.currentLang = lang;
+        Utils.setStorageItem(CONFIG.storageKey, lang);
+
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    updateUI(lang) {
+        const { langBtn, langOptions } = this.elements;
+
+        if (langBtn) {
+            const flagEl = langBtn.querySelector('.flag');
+            if (flagEl) flagEl.textContent = LANGUAGE_FLAGS[lang];
+        }
+
+        langOptions.forEach(option => {
+            option.classList.toggle('active', option.dataset.lang === lang);
+        });
+    }
+
+    bindEvents() {
+        const { langBtn, langDropdown, langOptions } = this.elements;
+
+        if (langBtn && langDropdown) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                    langDropdown.classList.remove('active');
+                }
+            });
+        }
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                this.translatePage(option.dataset.lang);
+                langDropdown?.classList.remove('active');
+            });
+        });
+    }
 }
 
-// ===== CONSOLE MESSAGE =====
-console.log('%cМикола Портфоліо', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-console.log('%cСтворено з HTML, CSS та JavaScript', 'color: #a1a1aa; font-size: 14px;');
-console.log('%cЗацікавлені у співпраці? Зв\'яжіться зі мною!', 'color: #6366f1; font-size: 14px;');
+// ===== NAVIGATION MANAGER =====
+class NavigationManager {
+    constructor() {
+        this.elements = {
+            nav: document.querySelector('.nav'),
+            navLinks: document.querySelectorAll('.nav-link'),
+            sections: document.querySelectorAll('section[id]')
+        };
+    }
+
+    init() {
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => this.handleAnchorClick(e));
+        });
+
+        // Scroll handling
+        window.addEventListener('scroll', Utils.throttle(() => this.handleScroll()));
+    }
+
+    handleAnchorClick(e) {
+        e.preventDefault();
+        const target = document.querySelector(e.currentTarget.getAttribute('href'));
+
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - CONFIG.navOffset,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    handleScroll() {
+        const scrolled = window.pageYOffset;
+        const { nav, navLinks, sections } = this.elements;
+
+        // Navigation background
+        nav?.classList.toggle('scrolled', scrolled > CONFIG.scrollThreshold);
+
+        // Active link
+        let current = '';
+        sections.forEach(section => {
+            if (scrolled >= section.offsetTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            link.classList.toggle('active', href && href.slice(1) === current);
+        });
+    }
+}
+
+// ===== PARALLAX MANAGER =====
+class ParallaxManager {
+    constructor() {
+        this.elements = {
+            heroContent: document.querySelector('.hero-content'),
+            heroVisual: document.querySelector('.hero-visual')
+        };
+    }
+
+    init() {
+        window.addEventListener('scroll', Utils.throttle(() => this.handleScroll()));
+    }
+
+    handleScroll() {
+        const scrolled = window.pageYOffset;
+        const { heroContent, heroVisual } = this.elements;
+
+        if (scrolled < window.innerHeight) {
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * CONFIG.parallaxSpeed.content}px)`;
+                heroContent.style.opacity = Math.max(0, 1 - (scrolled / 700));
+            }
+
+            if (heroVisual) {
+                heroVisual.style.transform = `translateY(${scrolled * CONFIG.parallaxSpeed.visual}px)`;
+            }
+        }
+    }
+}
+
+// ===== PROJECTS MANAGER =====
+class ProjectsManager {
+    constructor() {
+        this.cards = document.querySelectorAll('.project-card');
+    }
+
+    init() {
+        this.cards.forEach(card => {
+            card.addEventListener('mouseenter', () => this.handleHover(card));
+            card.addEventListener('mouseleave', () => this.handleLeave(card));
+        });
+    }
+
+    handleHover(card) {
+        card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+
+    handleLeave(card) {
+        card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+}
+
+// ===== ANIMATION MANAGER =====
+class AnimationManager {
+    init() {
+        if (typeof AOS !== 'undefined') {
+            AOS.init(CONFIG.aos);
+        } else {
+            console.warn('AOS library not loaded');
+        }
+    }
+}
+
+// ===== CONSOLE BRANDING =====
+class ConsoleBranding {
+    static init() {
+        const styles = {
+            title: 'color: #6366f1; font-size: 24px; font-weight: bold;',
+            subtitle: 'color: #a1a1aa; font-size: 14px;',
+            cta: 'color: #6366f1; font-size: 14px;'
+        };
+
+        console.log('%cМикола Портфоліо', styles.title);
+        console.log('%cСтворено з HTML, CSS та JavaScript', styles.subtitle);
+        console.log('%cЗацікавлені у співпраці? Зв\'яжіться зі мною!', styles.cta);
+    }
+}
+
+// ===== APPLICATION BOOTSTRAP =====
+class App {
+    constructor() {
+        this.modules = [
+            new LanguageManager(),
+            new NavigationManager(),
+            new ParallaxManager(),
+            new ProjectsManager(),
+            new AnimationManager()
+        ];
+    }
+
+    init() {
+        this.modules.forEach(module => module.init());
+        ConsoleBranding.init();
+    }
+}
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+    const app = new App();
+    app.init();
+});
