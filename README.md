@@ -1,187 +1,180 @@
-# AI Portfolio Landing Page
+# Mykola Portfolio
 
-A modern, minimalist portfolio landing page showcasing AI-driven web design and 3D projects. Built with clean HTML, CSS, and JavaScript, featuring smooth scroll animations and responsive design.
+Modern, minimal, and fully responsive portfolio website built with clean HTML, CSS, and JavaScript.
 
-![Hero Preview](./screenshots/hero.png)
+## Features
 
-## 🚀 Live Demo
-
-**[View Live Site →](https://your-portfolio.vercel.app)**
-
-## ✨ Features
-
-- **Responsive Design** - Fully adaptive layout for all devices
+### Core Functionality
+- **Multi-language Support** - English, Ukrainian, and Russian translations
 - **Smooth Animations** - AOS (Animate On Scroll) library integration
-- **Dark Theme** - Modern minimalist design with Inter font
-- **Interactive Projects Grid** - 6 featured projects with hover effects
-- **Contact Form** - Functional mailto form
-- **Performance Optimized** - Fast loading and smooth interactions
+- **Responsive Design** - Mobile-first approach, works on all devices
+- **Dark Theme** - Modern dark UI with gradient accents
+- **Project Showcase** - 8 portfolio projects with preview images
+- **Toast Notifications** - User-friendly feedback system
+- **Smooth Scrolling** - Enhanced navigation experience
+- **Language Persistence** - Saves user language preference
 
-## 🛠️ Tech Stack
+### Project Cards
+Each project card includes:
+- Preview image with fallback gradient icon
+- Project title and description
+- Technology tags
+- Live demo link or status notification
+- Hover effects and animations
 
-- HTML5
-- CSS3 (Custom properties, Grid, Flexbox)
-- Vanilla JavaScript
-- AOS Animation Library
-- Google Fonts (Inter)
+### Sections
+- **Hero** - Introduction with animated floating cards
+- **Projects** - Grid layout showcasing portfolio work
+- **About** - Personal information and skills
+- **Contact** - Social media links (Upwork, Telegram, GitHub)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-ai-portfolio-landing/
-├── public/
-│   └── images/
-│       ├── hero.png
-│       ├── projects.png
-│       └── contact.png
+portfolio/
+├── index.html                    # Main HTML file
 ├── src/
-│   ├── index.html      # Main HTML file
-│   ├── styles.css      # All styling
-│   └── main.js         # JavaScript functionality
-├── screenshots/
-│   ├── hero.png
-│   ├── projects.png
-│   └── contact.png
-├── README.md
-└── .gitignore
+│   ├── main.js                   # JavaScript logic
+│   ├── styles.css                # All CSS styles
+│   ├── translations/             # Language files
+│   │   ├── en.json               # English
+│   │   ├── uk.json               # Ukrainian
+│   │   └── ru.json               # Russian
+│   └── images/                   # Project preview images
+│       ├── dodep_coder.png
+│       ├── favicon_techstore.png
+│       ├── favicon_quote.png
+│       ├── favicon_focustime.png
+│       ├── web_develop.png
+│       └── favicon.png
+└── README.md
 ```
 
-## 🏃‍♂️ Running Locally
+## Technologies Used
 
-### Prerequisites
-- A modern web browser
-- Optional: Live Server extension for VS Code
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with CSS variables, flexbox, and grid
+- **JavaScript (ES6+)** - Vanilla JS, async/await, fetch API
+- **AOS Library** - Scroll animations
+- **Google Fonts** - Inter font family
 
-### Installation
+## Installation
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/ai-portfolio-landing.git
-cd ai-portfolio-landing
-```
+1. Clone the repository
+2. Ensure you have all files in the correct structure
+3. Add project preview images to `src/images/`
+4. Open `index.html` in a browser or deploy to a web server
 
-2. **Open with Live Server**
-   - If using VS Code with Live Server extension:
-     - Right-click on `index.html`
-     - Select "Open with Live Server"
-   
-   - Or simply open `index.html` in your browser:
-```bash
-open src/index.html
-# or
-start src/index.html  # Windows
-```
+No build process or dependencies required - just open and run!
 
-3. **No build process required!** This is a static site.
+## Configuration
 
-## 🌐 Deployment
+### Adding New Language
+1. Create new JSON file in `src/translations/` (e.g., `de.json`)
+2. Copy structure from existing language file
+3. Translate all keys
+4. Add language to `TRANSLATIONS` loader in `main.js`
+5. Add flag emoji to `FLAGS` object
+6. Add language option in HTML dropdown
 
-### Deploy to Vercel
+### Adding New Project
+1. Add project card HTML in `index.html`
+2. Include preview image in `src/images/`
+3. Add translations for title and description in all language files
+4. Set appropriate gradient and icon
+5. Add data-project attribute (`current`, `soon`, or `external`)
 
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
-
-2. Deploy:
-```bash
-cd ai-portfolio-landing
-vercel
-```
-
-### Deploy to Netlify
-
-1. Drag and drop the `src` folder to [Netlify Drop](https://app.netlify.com/drop)
-
-OR
-
-2. Using Netlify CLI:
-```bash
-npm install -g netlify-cli
-netlify deploy --dir=src --prod
-```
-
-### Deploy to GitHub Pages
-
-1. Push code to GitHub repository
-2. Go to Settings → Pages
-3. Select branch and `/src` folder
-4. Save and wait for deployment
-
-## 📸 Screenshots
-
-### Hero Section
-![Hero](./screenshots/hero.png)
-Clean, modern hero with animated floating cards and bold typography.
-
-### Projects Grid
-![Projects](./screenshots/projects.png)
-Responsive grid showcasing 6 featured projects with hover effects.
-
-### Contact Form
-![Contact](./screenshots/contact.png)
-Simple contact form with social links.
-
-## 🎨 Customization
-
-### Colors
+### Customizing Colors
 Edit CSS variables in `styles.css`:
 ```css
 :root {
-    --primary: #6366f1;
-    --bg-dark: #0f0f0f;
-    --bg-card: #1a1a1a;
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --border: #27272a;
 }
 ```
 
-### Content
-- Edit text in `index.html`
-- Replace project cards with your own projects
-- Update social links in the contact section
+## Browser Support
 
-### Images
-Add your project screenshots to `public/images/` and update the `project-placeholder` divs with:
-```html
-<img src="public/images/project-1.png" alt="Project Name">
-```
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 📝 Case Study
+## Features Breakdown
 
-**AI Portfolio Landing** — A personal landing page designed to showcase AI-driven design and interactive projects. 
+### Toast Notifications
+- `current` - Shows "Already viewing" message
+- `soon` - Shows "Coming soon" message
+- `external` - Shows "Redirecting" before external link
+- Auto-dismisses after 3 seconds (2 for redirects)
 
-**Stack:** HTML, CSS, JavaScript, AOS Library
+### Language System
+- Loads JSON translations asynchronously
+- Stores preference in localStorage
+- Updates all `data-i18n` elements
+- Refreshes AOS animations on language change
 
-**Role:** Design, development, animations
+### Image Loading
+- Progressive enhancement approach
+- Shows gradient placeholder while loading
+- Fallback to icon if image fails
+- Smooth fade-in animation on load
+- Hover scale effect on loaded images
 
-**Result:** A fully responsive, performant landing page with clean typography, smooth scroll animations, and intuitive navigation. The minimalist dark theme with Inter font creates a modern, professional aesthetic while maintaining excellent readability across all devices.
+## Performance
 
-**Key Features:**
-- Smooth scroll animations using AOS
-- Responsive grid layout for projects
-- Interactive hover effects
-- Performance-optimized with vanilla JavaScript
-- Accessibility-focused with semantic HTML
+- No external dependencies except AOS and Google Fonts
+- Minimal JavaScript footprint
+- Optimized CSS with minimal specificity
+- Lazy image loading strategy
+- Efficient scroll event handling with requestAnimationFrame
 
-## 🔧 Performance
+## Accessibility
 
-- **Lighthouse Score:** 95+ Performance
-- **First Contentful Paint:** < 1.5s
-- **Time to Interactive:** < 2.5s
-- **Total Bundle Size:** < 100KB (excluding images)
+- Semantic HTML structure
+- Alt text for images
+- Keyboard navigation support
+- Focus states for interactive elements
+- Sufficient color contrast
 
-## 📄 License
+## License
 
-MIT License - feel free to use this template for your own portfolio!
+MIT License
 
-## 🤝 Contact
+Copyright (c) 2025 Mykola
 
-For questions or collaboration:
-- Email: hello@aiportfolio.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com)
-- GitHub: [Your GitHub](https://github.com)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Author
+
+**Mykola**
+- Frontend Developer & Designer
+- Portfolio: This project
+- GitHub: frelancer-web-dev
 
 ---
 
-**Built with ❤️ using HTML, CSS, and JavaScript**
+Built with ❤️ using vanilla HTML, CSS, and JavaScript
