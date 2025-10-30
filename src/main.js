@@ -23,7 +23,7 @@ const TRANSLATIONS = {
         "about.text2": "I enjoy building from scratch: from idea and design to clean, responsive code. My main tools are HTML, CSS, JavaScript, and React.",
         "about.text3": "I aim for clarity, smooth user flow, and efficient structure in every project.",
         "about.skill1.title": "Frontend", "about.skill1.text": "HTML, CSS, JS, React",
-        "about.skill2.title": "Design", "about.skill2.text": "Figma, UI/UX, Branding",
+        "about.skill2.title": "Design", "about.skill2.text": "UI/UX, Branding",
         "about.skill3.title": "Workflow", "about.skill3.text": "Git, Vite, Responsive",
         "contact.title": "Let's Connect",
         "contact.intro": "Ready to collaborate? Reach me through any platform below.",
