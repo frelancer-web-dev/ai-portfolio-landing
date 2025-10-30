@@ -1,11 +1,26 @@
-// ===== IMPORTS =====
-import en from './translations/en.js';
-import uk from './translations/uk.js';
-import ru from './translations/ru.js';
-
 // ===== CONFIG =====
-const TRANSLATIONS = { en, uk, ru };
+const TRANSLATIONS = {};
 const FLAGS = { en: '🇬🇧', uk: '🇺🇦', ru: '🇷🇺' };
+
+// ===== LOAD TRANSLATIONS =====
+async function loadTranslations() {
+    try {
+        const [en, uk, ru] = await Promise.all([
+            fetch('./src/translations/en.json').then(r => r.json()),
+            fetch('./src/translations/uk.json').then(r => r.json()),
+            fetch('./src/translations/ru.json').then(r => r.json())
+        ]);
+        
+        TRANSLATIONS.en = en;
+        TRANSLATIONS.uk = uk;
+        TRANSLATIONS.ru = ru;
+        
+        return true;
+    } catch (error) {
+        console.error('Failed to load translations:', error);
+        return false;
+    }
+}
 
 // ===== TOAST NOTIFICATIONS =====
 const Toast = {
@@ -102,57 +117,65 @@ const handleProjectClick = (e) => {
 };
 
 // ===== SMOOTH SCROLL =====
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        });
     });
-});
+}
 
 // ===== SCROLL EFFECTS =====
-const nav = document.querySelector('.nav');
-const heroContent = document.querySelector('.hero-content');
-const heroVisual = document.querySelector('.hero-visual');
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-let tick = false;
-window.addEventListener('scroll', () => {
-    if (!tick) {
-        requestAnimationFrame(() => {
-            const y = window.pageYOffset;
-            
-            nav?.classList.toggle('scrolled', y > 100);
-            
-            if (y < window.innerHeight) {
-                if (heroContent) {
-                    heroContent.style.transform = `translateY(${y * 0.3}px)`;
-                    heroContent.style.opacity = Math.max(0, 1 - y / 700);
+function initScrollEffects() {
+    const nav = document.querySelector('.nav');
+    const heroContent = document.querySelector('.hero-content');
+    const heroVisual = document.querySelector('.hero-visual');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let tick = false;
+    window.addEventListener('scroll', () => {
+        if (!tick) {
+            requestAnimationFrame(() => {
+                const y = window.pageYOffset;
+                
+                nav?.classList.toggle('scrolled', y > 100);
+                
+                if (y < window.innerHeight) {
+                    if (heroContent) {
+                        heroContent.style.transform = `translateY(${y * 0.3}px)`;
+                        heroContent.style.opacity = Math.max(0, 1 - y / 700);
+                    }
+                    if (heroVisual) heroVisual.style.transform = `translateY(${y * 0.15}px)`;
                 }
-                if (heroVisual) heroVisual.style.transform = `translateY(${y * 0.15}px)`;
-            }
-            
-            let current = '';
-            sections.forEach(s => {
-                if (y >= s.offsetTop - 150) current = s.id;
+                
+                let current = '';
+                sections.forEach(s => {
+                    if (y >= s.offsetTop - 150) current = s.id;
+                });
+                navLinks.forEach(l => {
+                    l.classList.toggle('active', l.getAttribute('href')?.slice(1) === current);
+                });
+                
+                tick = false;
             });
-            navLinks.forEach(l => {
-                l.classList.toggle('active', l.getAttribute('href')?.slice(1) === current);
-            });
-            
-            tick = false;
-        });
-        tick = true;
-    }
-});
+            tick = true;
+        }
+    });
+}
 
 // ===== INIT =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadTranslations();
+    
     Lang.init();
     AOS?.init({ duration: 1000, once: true, offset: 100 });
     
-    // Project links handler
+    initSmoothScroll();
+    initScrollEffects();
+    
     document.addEventListener('click', handleProjectClick);
     
     console.log('%cМикола Портфоліо', 'color:#6366f1;font-size:24px;font-weight:bold');
