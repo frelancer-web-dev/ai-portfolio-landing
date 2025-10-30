@@ -1,116 +1,38 @@
-// ===== CONFIG & DATA =====
-const TRANSLATIONS = {
-    en: {
-        "nav.projects": "Projects", 
-        "nav.about": "About", 
-        "nav.contact": "Contact",
-        "hero.label": "Frontend Developer & Designer",
-        "hero.title": "Clean Code.<br />Smart Design.",
-        "hero.description": "I build fast, modern, and minimal websites that focus on usability and visual impact.",
-        "hero.cta": "View Projects",
-        "projects.title": "Projects",
-        "projects.project1.title": "QuoteFlow – Random Quote Generator",
-        "projects.project1.description": "A simple and elegant app that displays random inspirational quotes. Features smooth fade-in animations, dark/light theme toggle, and copy-to-clipboard functionality.",
-        "projects.project2.title": "FocusTimer – Minimal Pomodoro App",
-        "projects.project2.description": "A simple and elegant Pomodoro timer for focused work sessions. Features smooth animations, circular progress bar, sound alerts, and clean dark UI.",
-        "projects.project3.title": "TechStore – E-commerce Demo",
-        "projects.project3.description": "A dark, modern eCommerce landing page for showcasing tech products. Fully responsive, minimal, and cleanly structured with smooth UI elements.",
-        "projects.project4.title": "Product Landing Page",
-        "projects.project4.description": "A modern product landing built for conversion, featuring animations and CTA blocks.",
-        "projects.project5.title": "AI Dashboard UI",
-        "projects.project5.description": "Frontend dashboard prototype with charts, stat cards, and dark/light mode.",
-        "projects.project6.title": "Brand Identity Pack",
-        "projects.project6.description": "Brand style guide with logo, color palette, and mockups — simple, clean, and consistent.",
-        "projects.viewLive": "View Live →",
-        "about.title": "About",
-        "about.text1": "I'm Mykola — a frontend developer and designer focused on creating fast, minimal, and user-friendly web interfaces.",
-        "about.text2": "I enjoy building from scratch: from idea and design to clean, responsive code. My main tools are HTML, CSS, JavaScript, and React.",
-        "about.text3": "I aim for clarity, smooth user flow, and efficient structure in every project.",
-        "about.skill1.title": "Frontend", 
-        "about.skill1.text": "HTML, CSS, JS, React",
-        "about.skill2.title": "Design", 
-        "about.skill2.text": "UI/UX, Branding",
-        "about.skill3.title": "Workflow", 
-        "about.skill3.text": "Git, Vite, Responsive",
-        "contact.title": "Let's Connect",
-        "contact.intro": "Ready to collaborate? Reach me through any platform below.",
-        "footer.text": "© 2025 Mykola Portfolio. All rights reserved."
+// ===== IMPORTS =====
+import en from './translations/en.js';
+import uk from './translations/uk.js';
+import ru from './translations/ru.js';
+
+// ===== CONFIG =====
+const TRANSLATIONS = { en, uk, ru };
+const FLAGS = { en: '🇬🇧', uk: '🇺🇦', ru: '🇷🇺' };
+
+// ===== TOAST NOTIFICATIONS =====
+const Toast = {
+    show(message, duration = 3000) {
+        const toast = document.getElementById('toast');
+        if (!toast) return;
+        
+        toast.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, duration);
     },
-    uk: {
-        "nav.projects": "Проєкти", 
-        "nav.about": "Про мене", 
-        "nav.contact": "Контакти",
-        "hero.label": "Frontend розробник і дизайнер",
-        "hero.title": "Чистий код.<br />Розумний дизайн.",
-        "hero.description": "Створюю швидкі, сучасні та мінімалістичні сайти з фокусом на зручність та візуальний вплив.",
-        "hero.cta": "Переглянути проєкти",
-        "projects.title": "Проєкти",
-        "projects.project1.title": "QuoteFlow – Генератор цитат",
-        "projects.project1.description": "Простий та елегантний застосунок, що відображає випадкові натхненні цитати. М'які fade-in анімації, перемикання темної/світлої теми та копіювання в буфер обміну.",
-        "projects.project2.title": "FocusTimer – Мінімалістичний Pomodoro",
-        "projects.project2.description": "Простий та елегантний таймер Pomodoro для зосереджених робочих сесій. Плавні анімації, кругова шкала прогресу, звукові сповіщення та чистий темний інтерфейс.",
-        "projects.project3.title": "TechStore – Демо інтернет-магазину",
-        "projects.project3.description": "Темна, сучасна сторінка електронної комерції для демонстрації техніки. Повністю адаптивна, мінімалістична з плавними UI елементами.",
-        "projects.project4.title": "Product Landing",
-        "projects.project4.description": "Сучасна продуктова сторінка з анімаціями та блоками для конверсії.",
-        "projects.project5.title": "AI Dashboard UI",
-        "projects.project5.description": "Прототип панелі управління з графіками, картками статистики та темною темою.",
-        "projects.project6.title": "Brand Identity Pack",
-        "projects.project6.description": "Гайд бренду з логотипом, кольоровою палітрою та мокапами — просто, чисто, консистентно.",
-        "projects.viewLive": "Переглянути →",
-        "about.title": "Про мене",
-        "about.text1": "Я Микола — frontend розробник і дизайнер, зосереджений на створенні швидких, мінімалістичних та зручних веб-інтерфейсів.",
-        "about.text2": "Люблю будувати з нуля: від ідеї та дизайну до чистого, адаптивного коду. Мої основні інструменти — HTML, CSS, JavaScript та React.",
-        "about.text3": "Прагну до чіткості, плавного користувацького потоку та ефективної структури в кожному проєкті.",
-        "about.skill1.title": "Frontend", 
-        "about.skill1.text": "HTML, CSS, JS, React",
-        "about.skill2.title": "Дизайн", 
-        "about.skill2.text": "UI/UX, Branding",
-        "about.skill3.title": "Workflow", 
-        "about.skill3.text": "Git, Vite, Responsive",
-        "contact.title": "Зв'яжіться зі мною",
-        "contact.intro": "Готові до співпраці? Знайдіть мене на будь-якій платформі нижче.",
-        "footer.text": "© 2025 Микола Портфоліо. Всі права захищені."
+    
+    showCurrent() {
+        this.show(TRANSLATIONS[Lang.current]['toast.current']);
     },
-    ru: {
-        "nav.projects": "Проекты", 
-        "nav.about": "Обо мне", 
-        "nav.contact": "Контакты",
-        "hero.label": "Frontend разработчик и дизайнер",
-        "hero.title": "Чистый код.<br />Умный дизайн.",
-        "hero.description": "Создаю быстрые, современные и минималистичные сайты с фокусом на удобство и визуальное воздействие.",
-        "hero.cta": "Посмотреть проекты",
-        "projects.title": "Проекты",
-        "projects.project1.title": "QuoteFlow – Генератор цитат",
-        "projects.project1.description": "Простое и элегантное приложение, отображающее случайные вдохновляющие цитаты. Плавные fade-in анимации, переключение темной/светлой темы и копирование в буфер обмена.",
-        "projects.project2.title": "FocusTimer – Минималистичный Pomodoro",
-        "projects.project2.description": "Простой и элегантный таймер Pomodoro для сосредоточенных рабочих сессий. Плавные анимации, круговая шкала прогресса, звуковые оповещения и чистый темный интерфейс.",
-        "projects.project3.title": "TechStore – Демо интернет-магазина",
-        "projects.project3.description": "Темная, современная страница электронной коммерции для демонстрации техники. Полностью адаптивная, минималистичная с плавными UI элементами.",
-        "projects.project4.title": "Product Landing",
-        "projects.project4.description": "Современная продуктовая страница с анимациями и блоками для конверсии.",
-        "projects.project5.title": "AI Dashboard UI",
-        "projects.project5.description": "Прототип панели управления с графиками, карточками статистики и темной темой.",
-        "projects.project6.title": "Brand Identity Pack",
-        "projects.project6.description": "Гайд бренда с логотипом, цветовой палитрой и мокапами — просто, чисто, консистентно.",
-        "projects.viewLive": "Посмотреть →",
-        "about.title": "Обо мне",
-        "about.text1": "Я Микола — frontend разработчик и дизайнер, сосредоточенный на создании быстрых, минималистичных и удобных веб-интерфейсов.",
-        "about.text2": "Люблю строить с нуля: от идеи и дизайна до чистого, адаптивного кода. Мои основные инструменты — HTML, CSS, JavaScript и React.",
-        "about.text3": "Стремлюсь к четкости, плавному пользовательскому потоку и эффективной структуре в каждом проекте.",
-        "about.skill1.title": "Frontend", 
-        "about.skill1.text": "HTML, CSS, JS, React",
-        "about.skill2.title": "Дизайн", 
-        "about.skill2.text": "UI/UX, Branding",
-        "about.skill3.title": "Workflow", 
-        "about.skill3.text": "Git, Vite, Responsive",
-        "contact.title": "Свяжитесь со мной",
-        "contact.intro": "Готовы к сотрудничеству? Найдите меня на любой платформе ниже.",
-        "footer.text": "© 2025 Микола Портфолио. Все права защищены."
+    
+    showSoon() {
+        this.show(TRANSLATIONS[Lang.current]['toast.soon']);
+    },
+    
+    showRedirect() {
+        this.show(TRANSLATIONS[Lang.current]['toast.redirect'], 2000);
     }
 };
-
-const FLAGS = { en: '🇬🇧', uk: '🇺🇦', ru: '🇷🇺' };
 
 // ===== LANGUAGE SYSTEM =====
 const Lang = {
@@ -161,6 +83,24 @@ const Lang = {
     }
 };
 
+// ===== PROJECT LINKS HANDLER =====
+const handleProjectClick = (e) => {
+    const link = e.target.closest('.project-link');
+    if (!link) return;
+    
+    const projectType = link.dataset.project;
+    
+    if (projectType === 'current') {
+        e.preventDefault();
+        Toast.showCurrent();
+    } else if (projectType === 'soon') {
+        e.preventDefault();
+        Toast.showSoon();
+    } else if (projectType === 'external') {
+        Toast.showRedirect();
+    }
+};
+
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
@@ -183,10 +123,8 @@ window.addEventListener('scroll', () => {
         requestAnimationFrame(() => {
             const y = window.pageYOffset;
             
-            // Nav background
             nav?.classList.toggle('scrolled', y > 100);
             
-            // Parallax
             if (y < window.innerHeight) {
                 if (heroContent) {
                     heroContent.style.transform = `translateY(${y * 0.3}px)`;
@@ -195,7 +133,6 @@ window.addEventListener('scroll', () => {
                 if (heroVisual) heroVisual.style.transform = `translateY(${y * 0.15}px)`;
             }
             
-            // Active link
             let current = '';
             sections.forEach(s => {
                 if (y >= s.offsetTop - 150) current = s.id;
@@ -214,6 +151,9 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     Lang.init();
     AOS?.init({ duration: 1000, once: true, offset: 100 });
+    
+    // Project links handler
+    document.addEventListener('click', handleProjectClick);
     
     console.log('%cМикола Портфоліо', 'color:#6366f1;font-size:24px;font-weight:bold');
     console.log('%cHTML • CSS • JavaScript', 'color:#a1a1aa;font-size:14px');
