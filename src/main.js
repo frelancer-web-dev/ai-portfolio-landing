@@ -166,6 +166,30 @@ function initScrollEffects() {
     });
 }
 
+// ===== PROJECT IMAGES =====
+function initProjectImages() {
+    const images = document.querySelectorAll('.project-preview');
+    
+    images.forEach(img => {
+        const placeholder = img.nextElementSibling;
+        
+        img.addEventListener('load', () => {
+            img.classList.add('loaded');
+            if (placeholder) placeholder.style.opacity = '0';
+        });
+        
+        img.addEventListener('error', () => {
+            img.style.display = 'none';
+            if (placeholder) placeholder.style.opacity = '1';
+        });
+        
+        if (img.complete) {
+            img.classList.add('loaded');
+            if (placeholder) placeholder.style.opacity = '0';
+        }
+    });
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', async () => {
     await loadTranslations();
@@ -175,6 +199,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     initSmoothScroll();
     initScrollEffects();
+    initProjectImages();
     
     document.addEventListener('click', handleProjectClick);
     
