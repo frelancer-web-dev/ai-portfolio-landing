@@ -343,6 +343,22 @@ body {
   overflow: hidden;
 }
 
+.project-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.project-preview.loaded {
+  opacity: 1;
+}
+
 .project-placeholder {
   width: 100%;
   height: 100%;
@@ -350,6 +366,14 @@ body {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.project-card:hover .project-preview {
+  transform: scale(1.05);
 }
 
 .project-card:hover .project-placeholder {
