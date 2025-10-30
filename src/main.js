@@ -81,7 +81,7 @@ const TRANSLATIONS = {
         "about.text2": "Люблю строить с нуля: от идеи и дизайна до чистого, адаптивного кода. Мои основные инструменты — HTML, CSS, JavaScript и React.",
         "about.text3": "Стремлюсь к четкости, плавному пользовательскому потоку и эффективной структуре в каждом проекте.",
         "about.skill1.title": "Frontend", "about.skill1.text": "HTML, CSS, JS, React",
-        "about.skill2.title": "Дизайн", "about.skill2.text": "Figma, UI/UX, Branding",
+        "about.skill2.title": "Дизайн", "about.skill2.text": "UI/UX, Branding",
         "about.skill3.title": "Workflow", "about.skill3.text": "Git, Vite, Responsive",
         "contact.title": "Свяжитесь со мной",
         "contact.intro": "Готовы к сотрудничеству? Найдите меня на любой платформе ниже.",
