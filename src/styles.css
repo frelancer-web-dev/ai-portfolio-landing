@@ -321,6 +321,10 @@ body {
   gap: 32px;
 }
 
+.project-hidden {
+  display: none;
+}
+
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
