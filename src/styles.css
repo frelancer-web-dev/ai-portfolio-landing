@@ -559,6 +559,91 @@ body {
   font-size: 14px;
 }
 
+/* ===== SHOW ALL BUTTON ===== */
+.show-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.btn-show-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.btn-show-all:hover {
+  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== ALL PROJECTS PAGE ===== */
+.projects-page {
+  padding-top: 80px;
+}
+
+.back-button {
+  position: fixed;
+  top: 90px;
+  left: 24px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: var(--transition);
+}
+
+.back-button:hover {
+  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateX(-4px);
+}
+
+.all-projects {
+  padding: 120px 0 100px;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 56px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-description {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ===== TOAST NOTIFICATIONS ===== */
 .toast {
   position: fixed;
@@ -651,6 +736,25 @@ body {
     right: 20px;
     left: 20px;
     text-align: center;
+  }
+
+  .back-button {
+    top: 80px;
+    left: 16px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .page-description {
+    font-size: 16px;
+  }
+
+  .all-projects {
+    padding: 100px 0 60px;
   }
 }
 
