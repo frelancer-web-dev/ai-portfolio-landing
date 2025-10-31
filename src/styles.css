@@ -319,10 +319,17 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
+  margin-bottom: 60px;
 }
 
 .project-hidden {
   display: none;
+}
+
+.show-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
 }
 
 .project-card {
@@ -567,7 +574,7 @@ body {
 .show-all-container {
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 0;
 }
 
 .btn-show-all {
