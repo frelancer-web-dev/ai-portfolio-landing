@@ -679,6 +679,35 @@ body {
   opacity: 1;
 }
 
+.signature {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: var(--primary-color, #60a5fa);
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 1000;
+    background: rgba(18, 18, 18, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    user-select: none;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.signature:hover {
+    background: rgba(24, 24, 24, 0.95);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: scale(1.02);
+}
+
+.signature:active {
+    transform: scale(0.98);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hero .container {
