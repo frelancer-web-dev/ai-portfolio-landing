@@ -28,6 +28,7 @@
   "projects.project8.title": "Tasky – Minimal To-Do List",
   "projects.project8.description": "Clean and minimal to-do list with localStorage persistence. Add, delete, and mark tasks as complete with smooth animations.",
   "projects.viewLive": "View Live →",
+  "projects.showCode": "Show Code",
   "about.title": "About",
   "about.text1": "I'm Mykola — a frontend developer and designer focused on creating fast, minimal, and user-friendly web interfaces.",
   "about.text2": "I enjoy building from scratch: from idea and design to clean, responsive code. My main tools are HTML, CSS, JavaScript, and React.",
