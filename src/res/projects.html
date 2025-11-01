@@ -304,8 +304,8 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Override translation paths for projects.html
-    const TRANSLATION_BASE_PATH = '../../src/translations/';
+    // Override translation paths for projects.html (we're in src/res/)
+    window.TRANSLATION_BASE_PATH = '../translations/';
   </script>
   <script src="main.js"></script>
 </body>
