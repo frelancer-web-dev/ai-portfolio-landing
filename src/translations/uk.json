@@ -44,5 +44,9 @@
   "footer.text": "© 2025 Микола Портфоліо. Всі права захищені.",
   "toast.current": "Ви вже переглядаєте цей проєкт!",
   "toast.soon": "НЕЗАБАРОМ..",
-  "toast.redirect": "Перехід до проєкту..."
+  "toast.redirect": "Перехід до проєкту...",
+  "preview.about": "Про проєкт",
+  "preview.features": "Ключові можливості",
+  "preview.viewLive": "Переглянути проєкт",
+  "preview.viewCode": "Переглянути код"
 }
