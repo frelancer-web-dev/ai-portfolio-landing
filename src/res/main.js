@@ -6,9 +6,9 @@ const FLAGS = { en: '🇬🇧', uk: '🇺🇦', ru: '🇷🇺' };
 async function loadTranslations() {
     try {
         const [en, uk, ru] = await Promise.all([
-            fetch('./src/translations/en.json').then(r => r.json()),
-            fetch('./src/translations/uk.json').then(r => r.json()),
-            fetch('./src/translations/ru.json').then(r => r.json())
+            fetch('src/translations/en.json').then(r => r.json()),
+            fetch('src/translations/uk.json').then(r => r.json()),
+            fetch('src/translations/ru.json').then(r => r.json())
         ]);
         
         TRANSLATIONS.en = en;
@@ -126,7 +126,7 @@ const handleProjectCardClick = (e) => {
     
     const projectId = card.dataset.projectId;
     if (projectId) {
-        window.location.href = `./src/res/project.html?id=${projectId}`;
+        window.location.href = `src/res/project.html?id=${projectId}`;
     }
 };
 
