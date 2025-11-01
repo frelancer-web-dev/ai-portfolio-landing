@@ -116,6 +116,20 @@ const handleProjectClick = (e) => {
     }
 };
 
+// ===== PROJECT CARD CLICK HANDLER =====
+const handleProjectCardClick = (e) => {
+    // Ignore clicks on links and buttons
+    if (e.target.closest('a, button')) return;
+    
+    const card = e.target.closest('.project-card');
+    if (!card) return;
+    
+    const projectId = card.dataset.projectId;
+    if (projectId) {
+        window.location.href = `./project.html?id=${projectId}`;
+    }
+};
+
 // ===== SMOOTH SCROLL =====
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -190,6 +204,19 @@ function initProjectImages() {
     });
 }
 
+// ===== PROJECT CARDS INTERACTION =====
+function initProjectCards() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        // Add hover cursor style
+        card.style.cursor = 'pointer';
+        
+        // Add click handler
+        card.addEventListener('click', handleProjectCardClick);
+    });
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', async () => {
     await loadTranslations();
@@ -200,6 +227,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initSmoothScroll();
     initScrollEffects();
     initProjectImages();
+    initProjectCards();
     
     document.addEventListener('click', handleProjectClick);
     
