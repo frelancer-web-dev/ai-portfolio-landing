@@ -126,7 +126,7 @@ const handleProjectCardClick = (e) => {
     
     const projectId = card.dataset.projectId;
     if (projectId) {
-        window.location.href = `./project.html?id=${projectId}`;
+        window.location.href = `./src/res/project.html?id=${projectId}`;
     }
 };
 
