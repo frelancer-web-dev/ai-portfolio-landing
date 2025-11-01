@@ -172,14 +172,39 @@ function initProjectPreview() {
   
   currentProject = PROJECTS_DATA[projectId];
   console.log('Project loaded:', currentProject.title);
+  
+  // Виконуємо рендеринг
   renderProject(currentProject);
+  
+  // Ініціалізуємо галерею
   initGallery();
+  
+  // Ініціалізуємо AOS анімації
+  if (typeof AOS !== 'undefined') {
+    console.log('Initializing AOS animations...');
+    AOS.init({ 
+      duration: 1000, 
+      once: true, 
+      offset: 100 
+    });
+  } else {
+    console.warn('AOS library not loaded!');
+  }
+  
+  console.log('Project preview initialized successfully!');
 }
 
 function renderProject(project) {
+  console.log('Rendering project:', project.title);
+  
   // Title
   const titleEl = document.getElementById('projectTitle');
-  if (titleEl) titleEl.textContent = project.title;
+  if (titleEl) {
+    titleEl.textContent = project.title;
+    console.log('✓ Title rendered');
+  } else {
+    console.error('✗ projectTitle element not found!');
+  }
   
   // Tags
   const tagsContainer = document.getElementById('projectTags');
@@ -187,11 +212,19 @@ function renderProject(project) {
     tagsContainer.innerHTML = project.tags.map(tag => 
       `<span class="tag-large">${tag}</span>`
     ).join('');
+    console.log('✓ Tags rendered:', project.tags);
+  } else {
+    console.error('✗ projectTags element not found!');
   }
   
   // Description
   const descEl = document.getElementById('projectDescription');
-  if (descEl) descEl.textContent = project.description;
+  if (descEl) {
+    descEl.textContent = project.description;
+    console.log('✓ Description rendered');
+  } else {
+    console.error('✗ projectDescription element not found!');
+  }
   
   // Features
   const featuresList = document.getElementById('featuresList');
@@ -199,6 +232,9 @@ function renderProject(project) {
     featuresList.innerHTML = project.features.map(feature => 
       `<li>${feature}</li>`
     ).join('');
+    console.log('✓ Features rendered:', project.features.length, 'items');
+  } else {
+    console.error('✗ featuresList element not found!');
   }
   
   // Main Image
@@ -206,6 +242,9 @@ function renderProject(project) {
   if (mainImage) {
     mainImage.src = project.images[0];
     mainImage.alt = project.title;
+    console.log('✓ Main image set:', project.images[0]);
+  } else {
+    console.error('✗ mainImage element not found!');
   }
   
   // Indicators
@@ -214,6 +253,9 @@ function renderProject(project) {
     indicatorsContainer.innerHTML = project.images.map((_, index) => 
       `<button class="gallery-indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
     ).join('');
+    console.log('✓ Gallery indicators rendered:', project.images.length, 'indicators');
+  } else {
+    console.error('✗ galleryIndicators element not found!');
   }
   
   // Buttons
@@ -221,6 +263,8 @@ function renderProject(project) {
 }
 
 function setupButtons(project) {
+  console.log('Setting up buttons...');
+  
   const viewLiveBtn = document.getElementById('viewLiveBtn');
   const viewCodeBtn = document.getElementById('viewCodeBtn');
   
@@ -231,55 +275,77 @@ function setupButtons(project) {
         e.preventDefault();
         Toast.showCurrent();
       };
+      console.log('✓ View Live button: Current project');
     } else if (project.liveUrl) {
       viewLiveBtn.href = project.liveUrl;
       viewLiveBtn.target = '_blank';
+      viewLiveBtn.rel = 'noopener noreferrer';
       viewLiveBtn.onclick = () => {
         Toast.showRedirect();
       };
+      console.log('✓ View Live button: External link');
     } else {
       viewLiveBtn.href = '#';
       viewLiveBtn.onclick = (e) => {
         e.preventDefault();
         Toast.showSoon();
       };
+      console.log('✓ View Live button: Coming soon');
     }
+  } else {
+    console.error('✗ viewLiveBtn element not found!');
   }
   
   if (viewCodeBtn) {
     if (project.codeUrl) {
       viewCodeBtn.href = project.codeUrl;
       viewCodeBtn.target = '_blank';
+      viewCodeBtn.rel = 'noopener noreferrer';
+      console.log('✓ View Code button: GitHub link');
     } else {
       viewCodeBtn.href = '#';
       viewCodeBtn.onclick = (e) => {
         e.preventDefault();
         Toast.showSoon();
       };
+      console.log('✓ View Code button: Coming soon');
     }
+  } else {
+    console.error('✗ viewCodeBtn element not found!');
   }
 }
 
 function initGallery() {
+  console.log('Initializing gallery...');
+  
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const indicators = document.querySelectorAll('.gallery-indicator');
   
-  if (prevBtn) prevBtn.addEventListener('click', () => changeImage(-1));
-  if (nextBtn) nextBtn.addEventListener('click', () => changeImage(1));
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => changeImage(-1));
+    console.log('✓ Previous button listener added');
+  }
   
-  indicators.forEach(indicator => {
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => changeImage(1));
+    console.log('✓ Next button listener added');
+  }
+  
+  indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
       currentImageIndex = parseInt(indicator.dataset.index);
       updateGallery();
     });
   });
+  console.log('✓ Gallery indicators listeners added:', indicators.length);
   
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') changeImage(-1);
     if (e.key === 'ArrowRight') changeImage(1);
   });
+  console.log('✓ Keyboard navigation enabled');
 }
 
 function changeImage(direction) {
@@ -293,6 +359,7 @@ function changeImage(direction) {
     currentImageIndex = 0;
   }
   
+  console.log('Image changed to index:', currentImageIndex);
   updateGallery();
 }
 
@@ -309,6 +376,7 @@ function updateGallery() {
     setTimeout(() => {
       mainImage.src = currentProject.images[currentImageIndex];
       mainImage.style.opacity = '1';
+      console.log('Gallery updated to:', currentProject.images[currentImageIndex]);
     }, 200);
   }
   
@@ -324,8 +392,8 @@ function showError() {
     previewSection.innerHTML = `
       <div class="container">
         <div class="error-message" style="text-align: center; padding: 100px 20px;">
-          <h1 style="font-size: 48px; margin-bottom: 20px;">Project Not Found</h1>
-          <p style="color: var(--text-secondary); margin-bottom: 30px;">The project you're looking for doesn't exist.</p>
+          <h1 style="font-size: 48px; margin-bottom: 20px; color: var(--text-primary);">Project Not Found</h1>
+          <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 18px;">The project you're looking for doesn't exist.</p>
           <a href="../../index.html" class="btn-primary">Go Back Home</a>
         </div>
       </div>
@@ -336,5 +404,9 @@ function showError() {
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM loaded, initializing project preview...');
-  initProjectPreview();
+  
+  // Невелика затримка, щоб переконатися, що всі стилі завантажені
+  setTimeout(() => {
+    initProjectPreview();
+  }, 100);
 });
