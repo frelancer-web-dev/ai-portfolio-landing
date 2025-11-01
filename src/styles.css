@@ -425,6 +425,12 @@ body {
   font-weight: 500;
 }
 
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -442,6 +448,14 @@ body {
 .project-link:hover {
   color: var(--accent-hover);
   transform: translateX(4px);
+}
+
+.code-link {
+  color: var(--text-secondary);
+}
+
+.code-link:hover {
+  color: var(--text-primary);
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -795,6 +809,10 @@ body {
 
   .all-projects {
     padding: 100px 0 60px;
+  }
+
+  .project-links {
+    flex-direction: column;
   }
 }
 
