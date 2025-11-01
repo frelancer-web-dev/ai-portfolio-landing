@@ -556,7 +556,64 @@
     min-width: 100%;
   }
 }
+/* Додайте це В КІНЕЦЬ файлу project.css */
 
+/* ===== PROJECT PREVIEW PAGE FIXES ===== */
+.project-preview-page .project-preview {
+  min-height: calc(100vh - 200px);
+  padding: 120px 0 100px;
+}
+
+.project-preview-page .project-header,
+.project-preview-page .project-gallery,
+.project-preview-page .project-content-section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+/* Ensure content is visible even if AOS hasn't initialized */
+[data-aos] {
+  opacity: 1;
+  transform: none;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fix for gallery image container */
+.gallery-image-container {
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-main-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Ensure project content is visible */
+.project-content-section {
+  display: block !important;
+}
+
+.project-description-full {
+  display: block !important;
+}
+
+.project-features {
+  display: block !important;
+}
+
+/* Debug helper - remove after fixing */
+.project-preview * {
+  border: 1px solid rgba(255, 0, 0, 0.1);
+}
 @media (max-width: 480px) {
   /* Project Preview Page */
   .project-preview-title {
