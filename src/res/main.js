@@ -5,10 +5,13 @@ const FLAGS = { en: '🇬🇧', uk: '🇺🇦', ru: '🇷🇺' };
 // ===== LOAD TRANSLATIONS =====
 async function loadTranslations() {
     try {
+        // Check if custom path is defined (for project.html and projects.html)
+        const basePath = window.TRANSLATION_BASE_PATH || 'src/translations/';
+        
         const [en, uk, ru] = await Promise.all([
-            fetch('src/translations/en.json').then(r => r.json()),
-            fetch('src/translations/uk.json').then(r => r.json()),
-            fetch('src/translations/ru.json').then(r => r.json())
+            fetch(`${basePath}en.json`).then(r => r.json()),
+            fetch(`${basePath}uk.json`).then(r => r.json()),
+            fetch(`${basePath}ru.json`).then(r => r.json())
         ]);
         
         TRANSLATIONS.en = en;
