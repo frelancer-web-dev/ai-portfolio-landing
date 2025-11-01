@@ -126,7 +126,10 @@ const handleProjectCardClick = (e) => {
     
     const projectId = card.dataset.projectId;
     if (projectId) {
-        window.location.href = `src/res/project.html?id=${projectId}`;
+        // Check if we're on the main page or projects page
+        const isProjectsPage = window.location.pathname.includes('projects.html');
+        const projectPath = isProjectsPage ? 'project.html' : 'src/res/project.html';
+        window.location.href = `${projectPath}?id=${projectId}`;
     }
 };
 
