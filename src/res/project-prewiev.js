@@ -5,9 +5,9 @@ const PROJECTS_DATA = {
     description: 'A dark, minimal landing page for showcasing web & design projects. Built with clean HTML, CSS, and JavaScript, featuring smooth scroll animations, responsive design, and an elegant dark theme. Perfect for developers and designers who want to showcase their work professionally.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/dodep-coder.png',
-      './src/images/dodep-coder.png',
-      './src/images/dodep-coder.png'
+      '../src/images/dodep-coder.png',
+      '../src/images/dodep-coder.png',
+      '../src/images/dodep-coder.png'
     ],
     features: [
       'Fully responsive design for all devices',
@@ -17,16 +17,16 @@ const PROJECTS_DATA = {
       'Clean and semantic HTML structure'
     ],
     liveUrl: window.location.origin,
-    codeUrl: 'https://github.com/frelancer-web-dev/frelancer-web-dev.github.io'
+    codeUrl: 'https://github.com/frelancer-web-dev/ai-portfolio-landing'
   },
   'techstore': {
     title: 'TechStore – E-commerce Demo',
     description: 'A dark, modern eCommerce landing page designed for showcasing tech products. Features a clean and minimal design with smooth UI elements, fully responsive layout, and elegant product displays. Built to provide an excellent user experience across all devices.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/favicon_techstore.png',
-      './src/images/favicon_techstore.png',
-      './src/images/favicon_techstore.png'
+      '../src/images/favicon_techstore.png',
+      '../src/images/favicon_techstore.png',
+      '../src/images/favicon_techstore.png'
     ],
     features: [
       'Modern dark eCommerce design',
@@ -43,9 +43,9 @@ const PROJECTS_DATA = {
     description: 'A simple and elegant app that displays random inspirational quotes. Features beautiful fade-in animations, dark/light theme toggle, and copy-to-clipboard functionality. Perfect for daily inspiration and motivation.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/favicon_quote.png',
-      './src/images/favicon_quote.png',
-      './src/images/favicon_quote.png'
+      '../src/images/favicon_quote.png',
+      '../src/images/favicon_quote.png',
+      '../src/images/favicon_quote.png'
     ],
     features: [
       'Random quote generation',
@@ -62,9 +62,9 @@ const PROJECTS_DATA = {
     description: 'A simple and elegant Pomodoro timer for focused work sessions. Features smooth animations, circular progress bar, sound alerts, and a clean dark UI. Helps you stay productive with the proven Pomodoro technique.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/favicon_focustime.png',
-      './src/images/favicon_focustime.png',
-      './src/images/favicon_focustime.png'
+      '../src/images/favicon_focustime.png',
+      '../src/images/favicon_focustime.png',
+      '../src/images/favicon_focustime.png'
     ],
     features: [
       'Pomodoro timer functionality',
@@ -81,9 +81,9 @@ const PROJECTS_DATA = {
     description: 'A clean weather card with animated icons, city name, and temperature display. Features smooth refresh animations and dark theme with neon accents. Get weather updates in style.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/web_develop.png',
-      './src/images/web_develop.png',
-      './src/images/web_develop.png'
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png'
     ],
     features: [
       'Real-time weather data',
@@ -100,9 +100,9 @@ const PROJECTS_DATA = {
     description: 'Generate beautiful color combinations with one click. Features 5-color palettes, HEX code copying, and smooth color transition animations. Perfect for designers and developers.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/web_develop.png',
-      './src/images/web_develop.png',
-      './src/images/web_develop.png'
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png'
     ],
     features: [
       'Random palette generation',
@@ -119,9 +119,9 @@ const PROJECTS_DATA = {
     description: 'Beautiful counter with smooth number animations. Features increment/decrement buttons, smooth transitions, and optional sound effects. Simple yet elegant counting solution.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/web_develop.png',
-      './src/images/web_develop.png',
-      './src/images/web_develop.png'
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png'
     ],
     features: [
       'Smooth number animations',
@@ -138,9 +138,9 @@ const PROJECTS_DATA = {
     description: 'Clean and minimal to-do list with localStorage persistence. Add, delete, and mark tasks as complete with smooth animations. Stay organized with this simple task manager.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     images: [
-      './src/images/web_develop.png',
-      './src/images/web_develop.png',
-      './src/images/web_develop.png'
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png',
+      '../src/images/web_develop.png'
     ],
     features: [
       'Task creation and deletion',
