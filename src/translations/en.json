@@ -44,5 +44,9 @@
   "footer.text": "© 2025 Mykola Portfolio. All rights reserved.",
   "toast.current": "You are already viewing this project!",
   "toast.soon": "SOON..",
-  "toast.redirect": "Redirecting to project..."
+  "toast.redirect": "Redirecting to project...",
+  "preview.about": "About Project",
+  "preview.features": "Key Features",
+  "preview.viewLive": "View Live Project",
+  "preview.viewCode": "View Source Code"
 }
