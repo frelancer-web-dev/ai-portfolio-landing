@@ -1,0 +1,214 @@
+{
+  "ai-portfolio": {
+    "titleKey": "project1.title",
+    "descriptionKey": "project1.description",
+    "detailedDescriptionKey": "project1.detailedDescription",
+    "difficulty": "medium",
+    "timeSpent": "project1.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/ai-portfolio-landing/main/src/images/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/ai-portfolio-landing/main/src/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/ai-portfolio-landing/main/src/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project1.feature1",
+      "project1.feature2",
+      "project1.feature3",
+      "project1.feature4",
+      "project1.feature5",
+      "project1.feature6",
+      "project1.feature7",
+      "project1.feature8"
+    ],
+    "liveUrl": "current",
+    "codeUrl": "https://github.com/frelancer-web-dev/ai-portfolio-landing"
+  },
+  "techstore": {
+    "titleKey": "project2.title",
+    "descriptionKey": "project2.description",
+    "detailedDescriptionKey": "project2.detailedDescription",
+    "difficulty": "hard",
+    "timeSpent": "project2.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+", "JSON"],
+    "tags": ["E-commerce", "Vanilla JS", "Responsive Design", "Multi-language", "Dark Theme", "LocalStorage", "Form Validation"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/TechStore/main/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/TechStore/main/assets/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/TechStore/main/assets/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project2.feature1",
+      "project2.feature2",
+      "project2.feature3",
+      "project2.feature4",
+      "project2.feature5",
+      "project2.feature6",
+      "project2.feature7",
+      "project2.feature8",
+      "project2.feature9",
+      "project2.feature10",
+      "project2.feature11",
+      "project2.feature12",
+      "project2.feature13",
+      "project2.feature14",
+      "project2.feature15",
+      "project2.feature16",
+      "project2.feature17",
+      "project2.feature18",
+      "project2.feature19",
+      "project2.feature20",
+      "project2.feature21",
+      "project2.feature22",
+      "project2.feature23",
+      "project2.feature24",
+      "project2.feature25"
+    ],
+    "liveUrl": "https://frelancer-web-dev.github.io/TechStore/",
+    "codeUrl": "https://github.com/frelancer-web-dev/TechStore"
+  },
+  "quoteflow": {
+    "titleKey": "project3.title",
+    "descriptionKey": "project3.description",
+    "detailedDescriptionKey": "project3.detailedDescription",
+    "difficulty": "easy",
+    "timeSpent": "project3.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/QuoteFlow/main/src/images/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/QuoteFlow/main/src/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/QuoteFlow/main/src/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project3.feature1",
+      "project3.feature2",
+      "project3.feature3",
+      "project3.feature4",
+      "project3.feature5",
+      "project3.feature6"
+    ],
+    "liveUrl": "https://frelancer-web-dev.github.io/QuoteFlow/",
+    "codeUrl": "https://github.com/frelancer-web-dev/QuoteFlow"
+  },
+  "focustimer": {
+    "titleKey": "project4.title",
+    "descriptionKey": "project4.description",
+    "detailedDescriptionKey": "project4.detailedDescription",
+    "difficulty": "easy",
+    "timeSpent": "project4.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/FocusTimer/main/src/assets/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/FocusTimer/main/src/assets/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/FocusTimer/main/src/assets/screen2.png"
+    ],
+    "featuresKeys": [
+      "project4.feature1",
+      "project4.feature2",
+      "project4.feature3",
+      "project4.feature4",
+      "project4.feature5",
+      "project4.feature6"
+    ],
+    "liveUrl": "https://frelancer-web-dev.github.io/FocusTimer/",
+    "codeUrl": "https://github.com/frelancer-web-dev/FocusTimer"
+  },
+  "weathernow": {
+    "titleKey": "project5.title",
+    "descriptionKey": "project5.description",
+    "detailedDescriptionKey": "project5.detailedDescription",
+    "difficulty": "medium",
+    "timeSpent": "project5.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/WeatherNow/main/src/images/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/WeatherNow/main/src/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/WeatherNow/main/src/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project5.feature1",
+      "project5.feature2",
+      "project5.feature3",
+      "project5.feature4",
+      "project5.feature5",
+      "project5.feature6"
+    ],
+    "liveUrl": "https://weather-now-demo.vercel.app/",
+    "codeUrl": "https://github.com/frelancer-web-dev/WeatherNow"
+  },
+  "palettecraft": {
+    "titleKey": "project6.title",
+    "descriptionKey": "project6.description",
+    "detailedDescriptionKey": "project6.detailedDescription",
+    "difficulty": "medium",
+    "timeSpent": "project6.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/PaletteCraft/main/src/images/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/PaletteCraft/main/src/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/PaletteCraft/main/src/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project6.feature1",
+      "project6.feature2",
+      "project6.feature3",
+      "project6.feature4",
+      "project6.feature5",
+      "project6.feature6"
+    ],
+    "liveUrl": "https://frelancer-web-dev.github.io/PaletteCraft/",
+    "codeUrl": "https://github.com/frelancer-web-dev/PaletteCraft"
+  },
+  "countify": {
+    "titleKey": "project7.title",
+    "descriptionKey": "project7.description",
+    "detailedDescriptionKey": "project7.detailedDescription",
+    "difficulty": "easy",
+    "timeSpent": "project7.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/Countify/main/src/images/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/Countify/main/src/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/Countify/main/src/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project7.feature1",
+      "project7.feature2",
+      "project7.feature3",
+      "project7.feature4",
+      "project7.feature5"
+    ],
+    "liveUrl": "https://frelancer-web-dev.github.io/countify/",
+    "codeUrl": "https://github.com/frelancer-web-dev/countify"
+  },
+  "tasky": {
+    "titleKey": "project8.title",
+    "descriptionKey": "project8.description",
+    "detailedDescriptionKey": "project8.detailedDescription",
+    "difficulty": "medium",
+    "timeSpent": "project8.timeSpent",
+    "languages": ["HTML5", "CSS3", "JavaScript ES6+"],
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "images": [
+      "https://raw.githubusercontent.com/frelancer-web-dev/Tasky/main/assets/images/favicon.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/Tasky/main/assets/images/screen1.png",
+      "https://raw.githubusercontent.com/frelancer-web-dev/Tasky/main/assets/images/screen2.png"
+    ],
+    "featuresKeys": [
+      "project8.feature1",
+      "project8.feature2",
+      "project8.feature3",
+      "project8.feature4",
+      "project8.feature5",
+      "project8.feature6"
+    ],
+    "liveUrl": "https://frelancer-web-dev.github.io/Tasky/",
+    "codeUrl": "https://github.com/frelancer-web-dev/Tasky"
+  }
+}

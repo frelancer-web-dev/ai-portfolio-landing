@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Mykola | Frontend Developer & Designer</title>
+  <meta name="title" content="Mykola | Frontend Developer & Designer" />
+  <meta name="description" content="Frontend developer and designer creating fast, modern, and minimal websites. Specializing in HTML, CSS, JavaScript, and React." />
+  <meta name="keywords" content="frontend developer, web designer, portfolio, HTML, CSS, JavaScript, React, UI/UX" />
+  <meta name="author" content="Mykola" />
+  <meta name="theme-color" content="#6366f1" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="src/images/favicon.png" />
+  
+  <!-- DNS Prefetch & Preconnect for Performance -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg-primary:#0a0a0a;--bg-secondary:#111;--bg-card:#1a1a1a;--text-primary:#fff;--text-secondary:#a1a1aa;--accent:#6366f1;--border:#27272a;--transition:all .3s cubic-bezier(.4,0,.2,1)}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:var(--transition)}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  </style>
+  
+  <!-- Fonts with display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Preload Critical Resources -->
+  <link rel="modulepreload" href="src/js/main.js" />
+  <link rel="preload" href="src/css/main.css" as="style" />
+  <link rel="preload" href="src/css/projects.css" as="style" />
+  <link rel="preload" href="src/images/dodep-coder.png" as="image" />
+  
+  <!-- Styles -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" /></noscript>
+  
+  <link rel="stylesheet" href="src/css/main.css" />
+  <link rel="stylesheet" href="src/css/projects.css" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mykola",
+    "url": "https://yourdomain.com",
+    "jobTitle": "Frontend Developer & Designer",
+    "description": "Frontend developer and designer creating fast, modern, and minimal websites.",
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "UI/UX Design"],
+    "sameAs": [
+      "https://github.com/frelancer-web-dev",
+      "https://www.upwork.com/freelancers/~01dec1110f4bac0e7d",
+      "https://t.me/privatefanat_dep"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-to-content" style="position:absolute;left:-9999px;z-index:999;padding:1em;background:#6366f1;color:white;text-decoration:none;">Skip to main content</a>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="#" class="logo" aria-label="Mykola - Home">Mykola</a>
+      <ul class="nav-menu">
+        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="src/res/reviews.html" class="nav-link" data-i18n="nav.reviews">Reviews</a></li>
+        <li class="language-switcher">
+          <button class="lang-btn" id="currentLang" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="uk" role="menuitem">
+              <span class="flag" aria-hidden="true">🇺🇦</span>
+              <span>Українська</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag" aria-hidden="true">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+          <p class="hero-label" data-i18n="hero.label">Frontend Developer & Designer</p>
+          <h1 class="hero-title" data-i18n="hero.title">Clean Code.<br />Smart Design.</h1>
+          <p class="hero-description" data-i18n="hero.description">
+            I build fast, modern, and minimal websites that focus on usability and visual impact.
+          </p>
+          <a href="#projects" class="btn-primary" data-i18n="hero.cta">View Projects</a>
+        </div>
+        <div class="hero-visual" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" aria-hidden="true">
+          <div class="floating-card"></div>
+          <div class="floating-card"></div>
+          <div class="floating-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up" data-i18n="projects.title">Projects</h2>
+        <div class="projects-grid">
+          
+          <!-- Project 1: AI Portfolio -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-project-id="ai-portfolio">
+            <div class="project-image">
+              <img data-src="src/images/favicon.png" alt="AI Portfolio Landing - Dark minimal landing page" class="project-preview" loading="lazy" data-gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+              <div class="project-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)" aria-hidden="true">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projects.project1.title">AI Portfolio Landing</h3>
+              <p class="project-description" data-i18n="projects.project1.description">
+                A dark, minimal landing page for showcasing web & design projects. Fully responsive and animated.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+              <div class="project-links">
+                <button class="project-link" data-project="current" data-i18n="projects.viewLive" aria-label="View AI Portfolio project">View Live →</button>
+                <a href="https://github.com/frelancer-web-dev/ai-portfolio-landing" target="_blank" rel="noopener noreferrer" class="project-link code-link" data-i18n="projects.showCode" aria-label="View source code on GitHub">Show Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: TechStore -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="200" data-project-id="techstore">
+            <div class="project-image">
+              <img data-src="https://raw.githubusercontent.com/frelancer-web-dev/TechStore/main/favicon.png" alt="TechStore - Modern e-commerce demo" class="project-preview" loading="lazy" data-gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
+              <div class="project-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)" aria-hidden="true">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" aria-hidden="true">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                </svg>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" data-i18n="projects.project2.title">TechStore – E-commerce Demo</h3>
+              <p class="project-description" data-i18n="projects.project2.description">
+                A dark, modern eCommerce landing page for showcasing tech products. Fully responsive, minimal, and cleanly structured with smooth UI elements.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://frelancer-web-dev.github.io/TechStore/" target="_blank" rel="noopener noreferrer" class="project-link" data-project="external" data-i18n="projects.viewLive" aria-label="View TechStore live demo">View Live →</a>
+                <a href="https://github.com/frelancer-web-dev/TechStore" target="_blank" rel="noopener noreferrer" class="project-link code-link" data-i18n="projects.showCode" aria-label="View source code on GitHub">Show Code</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Show All Projects Button -->
+        <div class="show-all-container" data-aos="fade-up">
+          <a href="src/res/projects.html" class="btn-show-all" data-i18n="projects.showAll">Show All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content" data-aos="fade-up">
+          <h2 class="section-title" data-i18n="about.title">About</h2>
+          
+          <div class="about-layout">
+            <!-- Left: Avatar -->
+            <div class="about-avatar" data-aos="fade-right" data-aos-delay="100">
+              <img src="src/images/dodep-coder.png" alt="Mykola - Frontend Developer" loading="lazy" width="300" height="300">
+            </div>
+            
+            <!-- Right: Text Content -->
+            <div class="about-text-content" data-aos="fade-left" data-aos-delay="200">
+              <div class="about-text">
+                <p data-i18n="about.text1">
+                  I'm Mykola — a frontend developer and designer focused on creating fast, minimal, and user-friendly web interfaces.
+                </p>
+                <p data-i18n="about.text2">
+                  I enjoy building from scratch: from idea and design to clean, responsive code. My main tools are HTML, CSS, JavaScript, and React.
+                </p>
+                <p data-i18n="about.text3">
+                  I aim for clarity, smooth user flow, and efficient structure in every project.
+                </p>
+              </div>
+              
+              <div class="about-buttons">
+                <a href="src/res/about.html" class="btn-learn-more" data-i18n="about.learnMore">Learn More About Me →</a>
+                <a href="src/res/work.html" class="btn-work-stats" data-i18n="about.workStats">Statistics & Work →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up" data-i18n="contact.title">Let's Connect</h2>
+        <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
+          <p class="contact-intro" data-i18n="contact.intro">
+            Ready to collaborate? Reach me through any platform below.
+          </p>
+          <div class="social-buttons">
+            <a href="https://www.upwork.com/freelancers/~01dec1110f4bac0e7d" target="_blank" rel="noopener noreferrer" class="social-btn upwork-btn" aria-label="Visit my Upwork profile">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c.945.787 2.064 1.18 3.686 1.18 3.021 0 5.478-2.458 5.478-5.481 0-3.021-2.457-5.479-5.478-5.479z"/>
+              </svg>
+              <span>Upwork</span>
+            </a>
+            
+            <a href="https://t.me/privatefanat_dep" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn" aria-label="Contact me on Telegram">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+              <span>Telegram</span>
+            </a>
+            
+            <a href="https://github.com/frelancer-web-dev" target="_blank" rel="noopener noreferrer" class="social-btn github-btn" aria-label="Visit my GitHub profile">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p data-i18n="footer.text">&copy; 2025 Mykola Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Signature -->
+  <div class="signature" aria-label="Portfolio signature">Mykola's portfolio</div>
+  
+  <!-- Scripts - Deferred for performance -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="src/js/main.js" defer></script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .catch(err => console.log('SW registration failed'));
+      });
+    }
+  </script>
+</body>
+</html>

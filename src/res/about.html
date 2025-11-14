@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>About Me | Mykola Portfolio</title>
+  <meta name="title" content="About Me | Mykola Portfolio" />
+  <meta name="description" content="Learn more about Mykola - Frontend Developer & Designer. Skills, experience, and services." />
+  <meta name="keywords" content="frontend developer, about, skills, services, rates" />
+  <meta name="theme-color" content="#6366f1" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourdomain.com/src/res/about.html" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.png" />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="../css/main.css" as="style" />
+  <link rel="preload" href="../css/about.css" as="style" />
+  <link rel="preload" href="../js/main.js" as="script" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/about.css"/>
+</head>
+
+<body class="about-page">
+  
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-content" style="position:absolute;left:-9999px;z-index:999;padding:1em;background:#6366f1;color:white;text-decoration:none;">Skip to main content</a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Back Button -->
+  <a href="../../index.html" class="back-button" aria-label="Go back to home page">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span data-i18n="about.back">Back</span>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" aria-label="Mykola - Home">Mykola</a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="../../index.html#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="./index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        
+        <!-- Language Switcher -->
+        <li class="language-switcher">
+          <button class="lang-btn" id="currentLang" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="uk" role="menuitem">
+              <span class="flag" aria-hidden="true">🇺🇦</span>
+              <span>Українська</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag" aria-hidden="true">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- About Detail Section -->
+    <section class="about-detail">
+      <div class="container">
+        
+        <!-- Page Header -->
+        <header class="about-header">
+          <div class="avatar-large">
+            <img src="../images/dodep-coder.png" alt="Mykola - Frontend Developer" loading="eager">
+          </div>
+          <h1 class="about-title" data-i18n="about.detailTitle">About Me</h1>
+          <p class="about-subtitle" data-i18n="about.detailSubtitle">Frontend Developer & Designer</p>
+        </header>
+
+        <!-- Main Content Layout -->
+        <div class="about-content-wrapper">
+          
+          <!-- Left Side: Bio & Skills -->
+          <article class="about-main-content">
+            
+            <!-- Biography Card -->
+            <div class="content-card bio-card">
+              <h2 data-i18n="about.bioTitle">Who I Am</h2>
+              <div class="bio-text">
+                <p data-i18n="about.bio1">
+                  I'm Mykola — a frontend developer and designer focused on creating fast, minimal, and user-friendly web interfaces. I love transforming ideas into clean, functional websites.
+                </p>
+                <p data-i18n="about.bio2">
+                  I enjoy building from scratch: from idea and design to clean, responsive code. My main tools are HTML, CSS, JavaScript, and React. Every project is an opportunity to create something meaningful and beautiful.
+                </p>
+                <p data-i18n="about.bio3">
+                  I aim for clarity, smooth user flow, and efficient structure in every project. Quality and attention to detail are my top priorities.
+                </p>
+              </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="content-card skills-card">
+              <h2 data-i18n="about.skillsTitle">Technical Skills</h2>
+              <div class="skills-detailed">
+                <div class="skill-category">
+                  <h3 data-i18n="about.skill1.title">Frontend</h3>
+                  <div class="skill-tags">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript (ES6+)</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Responsive Design</span>
+                  </div>
+                </div>
+                
+                <div class="skill-category">
+                  <h3 data-i18n="about.skill2.title">Design</h3>
+                  <div class="skill-tags">
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Branding</span>
+                    <span class="skill-tag">Typography</span>
+                  </div>
+                </div>
+                
+                <div class="skill-category">
+                  <h3 data-i18n="about.skill3.title">Workflow</h3>
+                  <div class="skill-tags">
+                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">Mobile-First</span>
+                    <span class="skill-tag">Performance Optimization</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video & Resume Card -->
+            <div class="content-card media-card">
+              <!-- Tab Buttons -->
+              <div class="media-tabs">
+                <button class="media-tab active" data-tab="video">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                  <span data-i18n="about.videoTab">Video Presentation</span>
+                </button>
+                <button class="media-tab" data-tab="resume">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  <span data-i18n="about.resumeTab">Resume</span>
+                </button>
+              </div>
+
+              <!-- Video Content -->
+              <div class="media-content active" id="videoContent">
+                <div class="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/4S0nKFQ1tN0" 
+                    title="Mykola Portfolio Presentation" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+
+              <!-- Resume Content -->
+              <div class="media-content" id="resumeContent">
+                <div class="resume-header-bar">
+                  <h3 data-i18n="about.resumeTitle">Resume</h3>
+                  <a href="../res/resume.md" download="Mykola_Resume.md" class="btn-download">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span data-i18n="about.downloadResume">Download Resume</span>
+                  </a>
+                </div>
+                <div class="resume-content" id="resumeMarkdown">
+                  <div class="loading-spinner">Loading resume...</div>
+                </div>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- Right Side: Services & Contact -->
+          <aside class="about-sidebar">
+            
+            <!-- Services/Rates Card -->
+            <div class="content-card rates-card">
+              <h2 data-i18n="about.servicesTitle">Services & Rates</h2>
+              <div class="services-list">
+                
+                <div class="service-item">
+                  <div class="service-header">
+                    <h3 data-i18n="about.service1.name">Landing Page</h3>
+                    <span class="service-price" data-i18n="about.service1.price">from $10</span>
+                  </div>
+                  <p class="service-description" data-i18n="about.service1.desc">
+                    Responsive single-page website with modern design
+                  </p>
+                </div>
+
+                <div class="service-item">
+                  <div class="service-header">
+                    <h3 data-i18n="about.service2.name">Multi-page Website</h3>
+                    <span class="service-price" data-i18n="about.service2.price">from $15</span>
+                  </div>
+                  <p class="service-description" data-i18n="about.service2.desc">
+                    Complete website with multiple pages and navigation
+                  </p>
+                </div>
+
+                <div class="service-item">
+                  <div class="service-header">
+                    <h3 data-i18n="about.service4.name">UI/UX Design</h3>
+                    <span class="service-price" data-i18n="about.service4.price">from $5</span>
+                  </div>
+                  <p class="service-description" data-i18n="about.service4.desc">
+                    Complete design system with prototypes.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Social Links Card -->
+            <div class="content-card social-card">
+              <h2 data-i18n="about.connectTitle">Connect With Me</h2>
+              <div class="social-links-detailed">
+                
+                <a href="https://www.upwork.com/freelancers/~01dec1110f4bac0e7d" target="_blank" rel="noopener noreferrer" class="social-link-detailed upwork">
+                  <div class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c.945.787 2.064 1.18 3.686 1.18 3.021 0 5.478-2.458 5.478-5.481 0-3.021-2.457-5.479-5.478-5.479z"/>
+                    </svg>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">Upwork</span>
+                    <span class="social-handle">@mykola</span>
+                  </div>
+                </a>
+
+                <a href="https://t.me/privatefanat_dep" target="_blank" rel="noopener noreferrer" class="social-link-detailed telegram">
+                  <div class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">Telegram</span>
+                    <span class="social-handle">@privatefanat_dep</span>
+                  </div>
+                </a>
+
+                <a href="https://github.com/frelancer-web-dev" target="_blank" rel="noopener noreferrer" class="social-link-detailed github">
+                  <div class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                  </div>
+                  <div class="social-info">
+                    <span class="social-name">GitHub</span>
+                    <span class="social-handle">@frelancer-web-dev</span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p data-i18n="footer.text">&copy; 2025 Mykola Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Signature -->
+  <div class="signature" aria-label="Portfolio signature">Mykola's portfolio</div>
+  
+  <!-- Scripts -->
+  <script>
+    window.TRANSLATION_BASE_PATH = '../translations/';
+  </script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/about.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Statistics & Work | Mykola Portfolio</title>
+  <meta name="title" content="Statistics & Work | Mykola Portfolio" />
+  <meta name="description" content="Project statistics, client collaboration process, and current work status" />
+  <meta name="theme-color" content="#6366f1" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png" />
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/work.css"/>
+</head>
+
+<body class="work-page">
+  
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-content" style="position:absolute;left:-9999px;z-index:999;padding:1em;background:#6366f1;color:white;text-decoration:none;">Skip to main content</a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Back Button -->
+  <a href="../../index.html#about" class="back-button" aria-label="Go back to home page">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span data-i18n="work.back">Back</span>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" aria-label="Mykola - Home">Mykola</a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="../../index.html#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="../../index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="./reviews.html" class="nav-link" data-i18n="nav.reviews">Reviews</a></li>
+        
+        <!-- Language Switcher -->
+        <li class="language-switcher">
+          <button class="lang-btn" id="currentLang" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="uk" role="menuitem">
+              <span class="flag" aria-hidden="true">🇺🇦</span>
+              <span>Українська</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag" aria-hidden="true">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Work Statistics Section -->
+    <section class="work-stats">
+      <div class="container">
+        
+        <!-- Page Header -->
+        <header class="work-header">
+          <h1 class="work-title" data-i18n="work.title">Statistics & Work Process</h1>
+          <p class="work-subtitle" data-i18n="work.subtitle">Current status and collaboration details</p>
+        </header>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+          
+          <!-- Projects Counter -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+            </div>
+            <div class="stat-content">
+              <h3 data-i18n="work.stats.projects">Total Projects</h3>
+              <p class="stat-number" id="projectCount">0</p>
+            </div>
+          </div>
+
+          <!-- Reviews -->
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <div class="stat-content">
+              <h3 data-i18n="work.stats.reviews">Client Reviews</h3>
+              <p class="stat-number" data-i18n="work.stats.reviewsSoon">Soon</p>
+            </div>
+          </div>
+
+          <!-- Current Status -->
+          <div class="stat-card status-card">
+            <div class="stat-icon status-icon-free">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+            <div class="stat-content">
+              <h3 data-i18n="work.stats.status">Current Status</h3>
+              <p class="stat-status status-free" data-i18n="work.status.free">Free</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Client Collaboration Process -->
+        <section class="process-section">
+          <h2 class="section-title" data-i18n="work.client.title">Client Collaboration Process</h2>
+          <p class="section-description" data-i18n="work.client.description">5 steps to successful project delivery</p>
+          
+          <div class="process-steps">
+            
+            <!-- Step 1 -->
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step1.title">Order & Brief</h3>
+                <p data-i18n="work.client.step1.desc">Client places order and provides detailed project description with requirements and expectations</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step2.title">Mockup Review</h3>
+                <p data-i18n="work.client.step2.desc">I provide design mockup for review. Client evaluates and suggests changes or approves</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step3.title">Base Version</h3>
+                <p data-i18n="work.client.step3.desc">Development of working base version. Client reviews functionality and requests adjustments</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step4.title">Final Product</h3>
+                <p data-i18n="work.client.step4.desc">Complete website ready for launch. Client makes final changes and approves</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3 data-i18n="work.client.step5.title">Payment & Delivery</h3>
+                <p data-i18n="work.client.step5.desc">Final payment and full project transfer to client with documentation</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Development Process -->
+        <section class="process-section">
+          <h2 class="section-title" data-i18n="work.dev.title">Development Process</h2>
+          <p class="section-description" data-i18n="work.dev.description">5 stages of project development</p>
+          
+          <div class="process-steps">
+            
+            <!-- Dev Step 1 -->
+            <div class="process-step dev-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step1.title">Structure Planning</h3>
+                <p data-i18n="work.dev.step1.desc">Project structure planning and discussion with client about requirements</p>
+              </div>
+            </div>
+
+            <!-- Dev Step 2 -->
+            <div class="process-step dev-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step2.title">Design Creation</h3>
+                <p data-i18n="work.dev.step2.desc">Creating website mockup with all design elements and user interface</p>
+              </div>
+            </div>
+
+            <!-- Dev Step 3 -->
+            <div class="process-step dev-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step3.title">Base Development</h3>
+                <p data-i18n="work.dev.step3.desc">Development of base version with HTML structure and CSS styling</p>
+              </div>
+            </div>
+
+            <!-- Dev Step 4 -->
+            <div class="process-step dev-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step4.title">Logic Implementation</h3>
+                <p data-i18n="work.dev.step4.desc">Adding JavaScript functionality and interactive elements to the project</p>
+              </div>
+            </div>
+
+            <!-- Dev Step 5 -->
+            <div class="process-step dev-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3 data-i18n="work.dev.step5.title">Final Adjustments</h3>
+                <p data-i18n="work.dev.step5.desc">Making final changes, testing, and project optimization</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Status Explanations -->
+        <section class="status-explanation">
+          <h2 class="section-title" data-i18n="work.statusInfo.title">Status Explanation</h2>
+          
+          <div class="status-cards">
+            
+            <!-- Free Status -->
+            <div class="status-info-card">
+              <div class="status-badge status-free">
+                <span class="status-dot"></span>
+                <span data-i18n="work.status.free">Free</span>
+              </div>
+              <p data-i18n="work.statusInfo.free">Available and ready to accept new orders. Can start working on your project immediately</p>
+            </div>
+
+            <!-- Working Status -->
+            <div class="status-info-card">
+              <div class="status-badge status-working">
+                <span class="status-dot"></span>
+                <span data-i18n="work.status.working">Working</span>
+              </div>
+              <p data-i18n="work.statusInfo.working">Currently working on a project. May accept new orders with delayed start date</p>
+            </div>
+
+            <!-- Waiting Status -->
+            <div class="status-info-card">
+              <div class="status-badge status-waiting">
+                <span class="status-dot"></span>
+                <span data-i18n="work.status.waiting">Waiting Buyer</span>
+              </div>
+              <p data-i18n="work.statusInfo.waiting">Order received, waiting for client clarifications or feedback to proceed</p>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p data-i18n="footer.text">&copy; 2025 Mykola Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Signature -->
+  <div class="signature" aria-label="Portfolio signature">Mykola's work</div>
+  
+  <!-- Scripts -->
+  <script>
+    window.TRANSLATION_BASE_PATH = '../translations/';
+  </script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/work.js" defer></script>
+</body>
+</html>

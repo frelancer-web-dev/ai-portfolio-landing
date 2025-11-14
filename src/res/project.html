@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Project Preview | Mykola Portfolio</title>
+  <meta name="title" content="Project Preview | Mykola Portfolio" />
+  <meta name="description" content="Detailed preview of web development project by Mykola - Frontend Developer & Designer" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#6366f1" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourdomain.com/src/res/project.html" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.png" />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="../css/main.css" as="style" />
+  <link rel="preload" href="../css/project.css" as="style" />
+  <link rel="preload" href="../css/projects.css" as="style" />
+  <link rel="preload" href="../js/main.js" as="script" />
+  <link rel="preload" href="../js/project-preview.js" as="script" />
+  <link rel="preload" href="projects.json" as="fetch" crossorigin />
+  
+  <!-- Styles -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/project.css"/>
+  <link rel="stylesheet" href="../css/projects.css"/>
+</head>
+
+<body class="project-preview-page">
+  
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-content" style="position:absolute;left:-9999px;z-index:999;padding:1em;background:#6366f1;color:white;text-decoration:none;">Skip to main content</a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Back Button -->
+  <a href="javascript:history.back()" class="back-button" aria-label="Go back to previous page">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span data-i18n="projects.back">Back</span>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" aria-label="Mykola - Home">Mykola</a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="../../index.html#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="../../index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="./reviews.html" class="nav-link" data-i18n="nav.reviews">Reviews</a></li>
+
+        
+        <!-- Language Switcher -->
+        <li class="language-switcher">
+          <button class="lang-btn" id="currentLang" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="uk" role="menuitem">
+              <span class="flag" aria-hidden="true">🇺🇦</span>
+              <span>Українська</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag" aria-hidden="true">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Main Project Preview Section -->
+    <section class="project-preview">
+      <div class="container">
+        
+        <!-- Project Header -->
+        <header class="project-header">
+          <h1 class="project-preview-title" id="projectTitle">Loading Project...</h1>
+          <div class="project-meta">
+            <div class="project-tags-large" id="projectTags" role="list">
+              <!-- Tags will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content: Gallery (Left) + Description (Right) -->
+        <div class="project-content-wrapper">
+          
+          <!-- LEFT SIDE: Image Gallery -->
+          <aside class="project-gallery" aria-label="Project gallery">
+            <div class="gallery-main">
+              <div class="gallery-image-container">
+                <img 
+                  id="mainImage" 
+                  src="" 
+                  alt="Project Screenshot" 
+                  class="gallery-main-image"
+                  loading="eager"
+                >
+                
+                <!-- Previous Button -->
+                <button class="gallery-nav gallery-prev" id="prevBtn" aria-label="Previous image">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                </button>
+                
+                <!-- Next Button -->
+                <button class="gallery-nav gallery-next" id="nextBtn" aria-label="Next image">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Gallery Indicators -->
+              <div class="gallery-indicators" id="galleryIndicators" role="tablist" aria-label="Image selection">
+                <!-- Indicators will be inserted here by JavaScript -->
+              </div>
+            </div>
+          </aside>
+
+          <!-- RIGHT SIDE: Project Content -->
+          <article class="project-content-section">
+            
+            <!-- Description Card -->
+            <div class="project-description-full">
+              <h2 data-i18n="preview.about">About Project</h2>
+              <p id="projectDescription">
+                Loading project description...
+              </p>
+              
+              <!-- Key Features -->
+              <section class="project-features" id="projectFeatures">
+                <h3 data-i18n="preview.features">Key Features</h3>
+                <ul id="featuresList">
+                  <!-- Features will be inserted here by JavaScript -->
+                </ul>
+              </section>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="project-actions">
+              
+              <!-- View Live Button -->
+              <a 
+                id="viewLiveBtn" 
+                href="#" 
+                class="btn-action btn-primary-large"
+                aria-label="View live project demo"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+                <span data-i18n="preview.viewLive">View Live Project</span>
+              </a>
+              
+              <!-- View Code Button -->
+              <a 
+                id="viewCodeBtn" 
+                href="#" 
+                class="btn-action btn-secondary-large"
+                aria-label="View project source code"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                </svg>
+                <span data-i18n="preview.viewCode">View Source Code</span>
+              </a>
+              
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Detailed Info Section (NEW) -->
+        <div class="project-detailed-info" id="detailedInfo">
+          <h2 data-i18n="preview.detailedInfo">Detailed Information</h2>
+          
+          <p class="detailed-description" id="detailedDescription">
+            Loading detailed description...
+          </p>
+
+          <!-- Project Stats Grid -->
+          <div class="project-stats-grid">
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="preview.stats.timeSpent">Time Spent</div>
+              <div class="stat-value" id="timeSpent">~40 hours</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="preview.stats.languages">Languages</div>
+              <div class="stat-value" id="languagesUsed">HTML, CSS, JS</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="preview.stats.difficulty">Difficulty</div>
+              <div class="stat-value accent" id="difficultyLevel">Medium</div>
+            </div>
+          </div>
+
+          <!-- Full Features List -->
+          <div class="project-features">
+            <h3 data-i18n="preview.allFeatures">All Features</h3>
+            <ul id="allFeaturesList">
+              <!-- All features will be inserted here -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p data-i18n="footer.text">&copy; 2025 Mykola Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Signature -->
+  <div class="signature" aria-label="Portfolio signature">Mykola's portfolio</div>
+  
+  <!-- Scripts -->
+  <script>
+    // Override translation paths for project.html (we're in src/res/)
+    window.TRANSLATION_BASE_PATH = '../translations/';
+  </script>
+  
+  <!-- AOS Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  
+  <!-- Main Scripts -->
+  <script src="../js/main.js" defer></script>
+  <script src="../js/project-preview.js" defer></script>
+  
+</body>
+</html>

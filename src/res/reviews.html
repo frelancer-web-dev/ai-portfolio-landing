@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Client Reviews | Mykola Portfolio</title>
+  <meta name="title" content="Client Reviews | Mykola Portfolio" />
+  <meta name="description" content="Client testimonials and reviews for Mykola - Frontend Developer & Designer" />
+  <meta name="keywords" content="reviews, testimonials, client feedback, portfolio" />
+  <meta name="theme-color" content="#6366f1" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourdomain.com/src/res/reviews.html" />
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon.png" />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="../css/main.css" as="style" />
+  <link rel="preload" href="../css/reviews.css" as="style" />
+  <link rel="preload" href="../js/main.js" as="script" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css"/>
+  <link rel="stylesheet" href="../css/reviews.css"/>
+</head>
+
+<body class="reviews-page">
+  
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-content" style="position:absolute;left:-9999px;z-index:999;padding:1em;background:#6366f1;color:white;text-decoration:none;">Skip to main content</a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Back Button -->
+  <a href="../../index.html#about" class="back-button" aria-label="Go back to about section">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span data-i18n="reviews.back">Back</span>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="../../index.html" class="logo" aria-label="Mykola - Home">Mykola</a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="../../index.html#about" class="nav-link" data-i18n="nav.about">About</a></li>
+        <li><a href="../../index.html#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="./reviews.html" class="nav-link" data-i18n="nav.reviews">Reviews</a></li>
+        
+        <!-- Language Switcher -->
+        <li class="language-switcher">
+          <button class="lang-btn" id="currentLang" aria-label="Select language" aria-haspopup="true" aria-expanded="false">
+            <span class="flag" aria-hidden="true">🇬🇧</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              <span>English</span>
+            </button>
+            <button class="lang-option" data-lang="uk" role="menuitem">
+              <span class="flag" aria-hidden="true">🇺🇦</span>
+              <span>Українська</span>
+            </button>
+            <button class="lang-option" data-lang="ru" role="menuitem">
+              <span class="flag" aria-hidden="true">🇷🇺</span>
+              <span>Русский</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+      <div class="container">
+        
+        <!-- Page Header -->
+        <header class="reviews-header">
+          <h1 class="reviews-title" data-i18n="reviews.title">Client Reviews</h1>
+          <p class="reviews-subtitle" data-i18n="reviews.subtitle">What clients say about working with me</p>
+        </header>
+
+        <!-- Coming Soon State -->
+        <div class="coming-soon-wrapper">
+          
+          <!-- Icon -->
+          <div class="coming-soon-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+          </div>
+          
+          <!-- Title -->
+          <h2 class="coming-soon-title" data-i18n="reviews.comingSoon">Coming Soon</h2>
+          
+          <!-- Description -->
+          <p class="coming-soon-description" data-i18n="reviews.comingSoonDesc">
+            Client testimonials and reviews will be available here soon. Currently building my portfolio and gathering feedback from first clients.
+          </p>
+          
+          <!-- Placeholder Cards -->
+          <div class="review-placeholder-grid">
+            <!-- Placeholder 1 -->
+            <div class="review-placeholder">
+              <div class="placeholder-avatar"></div>
+              <div class="placeholder-line long"></div>
+              <div class="placeholder-line medium"></div>
+              <div class="placeholder-line short"></div>
+            </div>
+            
+            <!-- Placeholder 2 -->
+            <div class="review-placeholder">
+              <div class="placeholder-avatar"></div>
+              <div class="placeholder-line long"></div>
+              <div class="placeholder-line medium"></div>
+              <div class="placeholder-line short"></div>
+            </div>
+            
+            <!-- Placeholder 3 -->
+            <div class="review-placeholder">
+              <div class="placeholder-avatar"></div>
+              <div class="placeholder-line long"></div>
+              <div class="placeholder-line medium"></div>
+              <div class="placeholder-line short"></div>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <a href="../../index.html#contact" class="btn-primary" data-i18n="reviews.workTogether" aria-label="Contact me to work together">
+            Work Together →
+          </a>
+          
+        </div>
+
+        <!-- Future: Active Reviews Grid (commented out for now) -->
+        <!--
+        <div class="reviews-grid">
+          
+          <article class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">
+                <img src="../images/client1.jpg" alt="Client Name" loading="lazy">
+              </div>
+              <div class="review-info">
+                <h3>Client Name</h3>
+                <div class="review-meta">
+                  <div class="review-rating">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <span>•</span>
+                  <time datetime="2025-01-15">January 2025</time>
+                </div>
+              </div>
+            </div>
+            <p class="review-content">
+              Excellent work! The website exceeded all expectations. Clean code, beautiful design, and delivered on time.
+            </p>
+            <div class="review-project">
+              <strong>Project:</strong> E-commerce Website
+            </div>
+          </article>
+
+        </div>
+        -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p data-i18n="footer.text">&copy; 2025 Mykola Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Signature -->
+  <div class="signature" aria-label="Portfolio signature">Mykola's reviews</div>
+  
+  <!-- Scripts -->
+  <script>
+    // Set translation path for reviews page
+    window.TRANSLATION_BASE_PATH = '../translations/';
+  </script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
