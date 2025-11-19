@@ -28,14 +28,12 @@ My core tools are **HTML**, **CSS**, **JavaScript**, and **React**. I strive for
 - React
 - Responsive / Adaptive Design
 - Git / GitHub
-- Figma to Code
 
 ### 🛠️ Development Tools
 - VS Code
 - Git / GitHub
-- Figma
 - Chrome DevTools
-- Netlify / Vercel
+- Vercel
 
 ---
 
