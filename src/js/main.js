@@ -9,7 +9,7 @@ const CONFIG = {
     'src/images/dodeper1.png',
     'src/images/dodeper2.png'
   ],
-  AVATAR_INTERVAL: 10000,
+  AVATAR_INTERVAL: 15000, // Збільшено з 10 до 15 секунд
   TOAST_DURATION: 3000
 };
 
@@ -17,7 +17,10 @@ const CONFIG = {
 const State = {
   translations: {},
   projects: {},
-  currentLang: localStorage.getItem('lang') || CONFIG.DEFAULT_LANG
+  currentLang: (() => {
+    const saved = localStorage.getItem('lang');
+    return ['en', 'uk', 'ru'].includes(saved) ? saved : CONFIG.DEFAULT_LANG;
+  })()
 };
 
 // Make state globally accessible
@@ -26,7 +29,6 @@ window.currentLang = State.currentLang;
 
 // ===== UTILITIES =====
 const Utils = {
-  // Debounce function
   debounce(fn, delay) {
     let timeout;
     return (...args) => {
@@ -35,7 +37,6 @@ const Utils = {
     };
   },
 
-  // Throttle function
   throttle(fn, limit) {
     let inThrottle;
     return (...args) => {
@@ -47,7 +48,6 @@ const Utils = {
     };
   },
 
-  // Request Animation Frame wrapper
   raf(callback) {
     return requestAnimationFrame(callback);
   }
@@ -66,9 +66,30 @@ const DataLoader = {
       
       Object.assign(State.translations, { en, uk, ru });
       window.TRANSLATIONS = State.translations;
+      
+      // Кешуємо в sessionStorage
+      try {
+        sessionStorage.setItem('translations', JSON.stringify(State.translations));
+      } catch (e) {
+        console.warn('Failed to cache translations:', e);
+      }
+      
       return true;
     } catch (error) {
       console.error('Failed to load translations:', error);
+      
+      // Спробуємо завантажити з кешу
+      try {
+        const cached = sessionStorage.getItem('translations');
+        if (cached) {
+          Object.assign(State.translations, JSON.parse(cached));
+          window.TRANSLATIONS = State.translations;
+          return true;
+        }
+      } catch (e) {
+        console.warn('Failed to load cached translations:', e);
+      }
+      
       return false;
     }
   },
@@ -102,14 +123,17 @@ const Toast = {
     this.element = document.getElementById('toast');
   },
 
-  show(message, duration = CONFIG.TOAST_DURATION) {
+  show(message, duration = null) {
     if (!this.element) return;
+    
+    // Динамічна тривалість залежно від довжини тексту
+    const calcDuration = duration || Math.max(CONFIG.TOAST_DURATION, message.length * 50);
     
     clearTimeout(this.timeout);
     this.element.textContent = message;
     this.element.classList.add('show');
     
-    this.timeout = setTimeout(() => this.hide(), duration);
+    this.timeout = setTimeout(() => this.hide(), calcDuration);
   },
 
   hide() {
@@ -134,19 +158,15 @@ const Lang = {
   translate(lang) {
     if (!State.translations[lang]) return;
 
-    // Batch DOM updates
-    const fragment = document.createDocumentFragment();
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const text = State.translations[lang]?.[el.dataset.i18n];
       if (text) el.innerHTML = text;
     });
     
-    // Update flag
     const btn = document.getElementById('currentLang');
     const flagEl = btn?.querySelector('.flag');
     if (flagEl) flagEl.textContent = CONFIG.FLAGS[lang] || CONFIG.FLAGS[CONFIG.DEFAULT_LANG];
     
-    // Update active language option
     document.querySelectorAll('.lang-option').forEach(opt => {
       opt.classList.toggle('active', opt.dataset.lang === lang);
     });
@@ -155,11 +175,11 @@ const Lang = {
     window.currentLang = lang;
     localStorage.setItem('lang', lang);
     
-    // Update difficulty tags
     this.updateDifficultyTags();
     
-    // Refresh animations if available
-    typeof AOS !== 'undefined' && AOS.refresh();
+    if (typeof AOS !== 'undefined') {
+      AOS.refresh();
+    }
   },
 
   updateDifficultyTags() {
@@ -193,22 +213,24 @@ const Lang = {
     if (btn) {
       btn.addEventListener('click', e => {
         e.stopPropagation();
+        const isActive = dropdown?.classList.contains('active');
+        btn.setAttribute('aria-expanded', !isActive);
         dropdown?.classList.toggle('active');
       });
     }
     
-    // Close dropdown on outside click
     document.addEventListener('click', e => {
       if (dropdown && !btn?.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.classList.remove('active');
+        btn?.setAttribute('aria-expanded', 'false');
       }
     });
     
-    // Language option clicks
     document.querySelectorAll('.lang-option').forEach(opt => {
       opt.addEventListener('click', () => {
         this.translate(opt.dataset.lang);
         dropdown?.classList.remove('active');
+        btn?.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -271,10 +293,8 @@ const ScrollEffects = {
     Utils.raf(() => {
       const scrollY = window.pageYOffset;
       
-      // Nav scrolled state
       this.nav?.classList.toggle('scrolled', scrollY > 100);
       
-      // Hero parallax (only if in viewport)
       if (scrollY < window.innerHeight) {
         if (this.heroContent) {
           this.heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
@@ -285,7 +305,6 @@ const ScrollEffects = {
         }
       }
       
-      // Active nav link
       let currentSection = '';
       this.sections.forEach(section => {
         if (scrollY >= section.offsetTop - 150) {
@@ -302,7 +321,6 @@ const ScrollEffects = {
   }
 };
 
-// ===== IMAGE LOADING =====
 // ===== IMAGE LOADING =====
 const ImageLoader = {
   observer: null,
@@ -321,7 +339,6 @@ const ImageLoader = {
     );
 
     document.querySelectorAll('.project-preview').forEach(img => {
-      // Встановлюємо src з data-src
       const src = img.getAttribute('data-src');
       if (src) {
         img.src = src;
@@ -341,9 +358,22 @@ const ImageLoader = {
     }, { once: true });
     
     img.addEventListener('error', () => {
+      console.error('Failed to load image:', img.src);
       img.style.display = 'none';
+      
       if (placeholder?.classList.contains('project-placeholder')) {
         placeholder.style.opacity = '1';
+        
+        // Додаємо fallback SVG якщо його немає
+        if (!placeholder.querySelector('svg')) {
+          placeholder.innerHTML = `
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+          `;
+        }
       }
     }, { once: true });
     
@@ -374,8 +404,10 @@ const AvatarSlider = {
   },
 
   stop() {
-    clearInterval(this.intervalId);
-    this.intervalId = null;
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
   },
 
   change() {
@@ -424,47 +456,50 @@ const SmoothScroll = {
 
 // ===== INITIALIZATION =====
 async function init() {
-  // Load data in parallel
+  // Показуємо індикатор завантаження якщо потрібно
+  const loadingIndicator = document.querySelector('.loading-indicator');
+  if (loadingIndicator) {
+    loadingIndicator.style.display = 'block';
+  }
+
   await Promise.all([
     DataLoader.loadTranslations(),
     DataLoader.loadProjects()
   ]);
   
-  // Initialize components
   Toast.init();
   Lang.init();
   
-  // Don't init AOS on project preview pages
   if (!document.querySelector('.project-preview-page') && typeof AOS !== 'undefined') {
     AOS.init({ 
       duration: 1000, 
       once: true, 
       offset: 100,
-      disable: 'mobile' // Disable on mobile for better performance
+      disable: window.innerWidth < 768
     });
   }
   
-  // Initialize features
   SmoothScroll.init();
   ScrollEffects.init();
   ImageLoader.init();
   AvatarSlider.init();
   
-  // Setup project cards
   document.querySelectorAll('.project-card').forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', Handlers.handleCardClick);
   });
   
-  // Add global click handler for project links
   document.addEventListener('click', Handlers.handleProjectClick);
   
-  // Console signature
+  // Ховаємо індикатор завантаження
+  if (loadingIndicator) {
+    loadingIndicator.style.display = 'none';
+  }
+  
   console.log('%cМикола Портфоліо', 'color:#6366f1;font-size:24px;font-weight:bold');
   console.log('%cHTML • CSS • JavaScript', 'color:#a1a1aa;font-size:14px');
 }
 
-// Start when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
