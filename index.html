@@ -12,6 +12,20 @@
   <meta name="author" content="Mykola" />
   <meta name="theme-color" content="#6366f1" />
   
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:title" content="Mykola | Frontend Developer & Designer" />
+  <meta property="og:description" content="Frontend developer creating fast, modern, and minimal websites." />
+  <meta property="og:image" content="https://yourdomain.com/src/images/og-image.jpg" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yourdomain.com/" />
+  <meta property="twitter:title" content="Mykola | Frontend Developer & Designer" />
+  <meta property="twitter:description" content="Frontend developer creating fast, modern, and minimal websites." />
+  <meta property="twitter:image" content="https://yourdomain.com/src/images/og-image.jpg" />
+  
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon.png" />
@@ -30,8 +44,8 @@
     :root{--bg-primary:#0a0a0a;--bg-secondary:#111;--bg-card:#1a1a1a;--text-primary:#fff;--text-secondary:#a1a1aa;--accent:#6366f1;--border:#27272a;--transition:all .3s cubic-bezier(.4,0,.2,1)}
     html{scroll-behavior:smooth}
     body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:var(--transition)}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:var(--transition)}
   </style>
   
   <!-- Fonts with display=swap -->
@@ -289,7 +303,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .catch(err => console.log('SW registration failed'));
+          .catch(err => console.log('SW registration failed:', err));
       });
     }
   </script>
