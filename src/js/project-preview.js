@@ -13,9 +13,12 @@ const PreviewUtils = {
     const toast = document.getElementById('toast');
     if (!toast) return;
     
+    // Динамічна тривалість
+    const calcDuration = Math.max(duration, message.length * 50);
+    
     toast.textContent = message;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), duration);
+    setTimeout(() => toast.classList.remove('show'), calcDuration);
   },
 
   getTranslation(key, isProjectKey = false) {
@@ -46,9 +49,18 @@ const PreviewDataLoader = {
   async loadTranslations() {
     try {
       const [en, uk, ru] = await Promise.all([
-        fetch('../translations/project-en.json').then(r => r.json()),
-        fetch('../translations/project-uk.json').then(r => r.json()),
-        fetch('../translations/project-ru.json').then(r => r.json())
+        fetch('../translations/project-en.json').then(r => {
+          if (!r.ok) throw new Error('Failed to load EN translations');
+          return r.json();
+        }),
+        fetch('../translations/project-uk.json').then(r => {
+          if (!r.ok) throw new Error('Failed to load UK translations');
+          return r.json();
+        }),
+        fetch('../translations/project-ru.json').then(r => {
+          if (!r.ok) throw new Error('Failed to load RU translations');
+          return r.json();
+        })
       ]);
       
       Object.assign(ProjectPreviewState.translations, { en, uk, ru });
@@ -70,7 +82,7 @@ const PreviewRenderer = {
       projectDescription: PreviewUtils.getTranslation(project.descriptionKey, true),
       detailedDescription: PreviewUtils.getTranslation(project.detailedDescriptionKey, true),
       timeSpent: PreviewUtils.getTranslation(project.timeSpent, true),
-      languagesUsed: project.languages.join(', ')
+      languagesUsed: project.languages ? project.languages.join(', ') : 'N/A'
     };
 
     requestAnimationFrame(() => {
@@ -93,10 +105,12 @@ const PreviewRenderer = {
     if (!container) return;
 
     const difficultyLabel = PreviewUtils.getDifficultyLabel(project.difficulty);
+    const tags = project.tags || [];
+    
     const html = `
       <div class="project-meta-tags">
         <span class="difficulty-tag difficulty-${project.difficulty}">${difficultyLabel}</span>
-        ${project.tags.map(tag => `<span class="tag-large">${tag}</span>`).join('')}
+        ${tags.map(tag => `<span class="tag-large">${tag}</span>`).join('')}
       </div>
     `;
     container.innerHTML = html;
@@ -119,7 +133,7 @@ const PreviewRenderer = {
         <div class="features-list-collapsed" id="collapsedFeatures">
           ${hiddenFeatures.map(key => `<li>${PreviewUtils.getTranslation(key, true)}</li>`).join('')}
         </div>
-        <button class="show-more-features-btn" id="toggleFeaturesBtn">
+        <button class="show-more-features-btn" id="toggleFeaturesBtn" aria-expanded="false">
           <span data-i18n="preview.showMore">${PreviewUtils.getTranslation('preview.showMore')}</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M19 9l-7 7-7-7"/>
@@ -148,6 +162,8 @@ const PreviewRenderer = {
 
     collapsed.classList.toggle('expanded');
     btn.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', ProjectPreviewState.featuresExpanded);
+    
     btn.querySelector('span').textContent = PreviewUtils.getTranslation(
       ProjectPreviewState.featuresExpanded ? 'preview.showLess' : 'preview.showMore'
     );
@@ -155,16 +171,28 @@ const PreviewRenderer = {
 
   renderMainImage(project) {
     const img = document.getElementById('mainImage');
-    if (!img || !project.images?.[0]) return;
+    if (!img) return;
+    
+    if (!project.images || project.images.length === 0) {
+      img.style.display = 'none';
+      console.warn('No images found for project');
+      return;
+    }
 
     img.src = project.images[0];
     img.alt = PreviewUtils.getTranslation(project.titleKey, true);
     img.style.opacity = '1';
+    
+    // Обробка помилок завантаження
+    img.onerror = () => {
+      console.error('Failed to load main image:', img.src);
+      img.style.display = 'none';
+    };
   },
 
   renderGalleryIndicators(project) {
     const container = document.getElementById('galleryIndicators');
-    if (!container || !project.images) return;
+    if (!container || !project.images || project.images.length === 0) return;
 
     const html = project.images.map((_, index) => 
       `<button class="gallery-indicator ${index === ProjectPreviewState.currentImageIndex ? 'active' : ''}" 
@@ -292,8 +320,11 @@ const PreviewGallery = {
     ProjectPreviewState.currentImageIndex += direction;
 
     const len = ProjectPreviewState.currentProject.images.length;
-    if (ProjectPreviewState.currentImageIndex < 0) ProjectPreviewState.currentImageIndex = len - 1;
-    else if (ProjectPreviewState.currentImageIndex >= len) ProjectPreviewState.currentImageIndex = 0;
+    if (ProjectPreviewState.currentImageIndex < 0) {
+      ProjectPreviewState.currentImageIndex = len - 1;
+    } else if (ProjectPreviewState.currentImageIndex >= len) {
+      ProjectPreviewState.currentImageIndex = 0;
+    }
 
     this.update();
   },
@@ -332,6 +363,24 @@ function observeLanguageChanges() {
   }
 }
 
+// ===== BACK BUTTON FIX =====
+function setupBackButton() {
+  const backBtn = document.querySelector('.back-button');
+  if (!backBtn) return;
+  
+  backBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Перевіряємо чи є реферер з нашого сайту
+    if (document.referrer && document.referrer.includes(window.location.host)) {
+      history.back();
+    } else {
+      // Якщо прийшли з іншого місця - йдемо на головну
+      window.location.href = '../../index.html';
+    }
+  });
+}
+
 // ===== INITIALIZATION =====
 async function initProjectPreview() {
   const section = document.querySelector('.project-preview');
@@ -362,6 +411,7 @@ async function initProjectPreview() {
   PreviewRenderer.renderProject(ProjectPreviewState.currentProject);
   PreviewGallery.init();
   observeLanguageChanges();
+  setupBackButton();
 }
 
 if (document.readyState === 'loading') {
